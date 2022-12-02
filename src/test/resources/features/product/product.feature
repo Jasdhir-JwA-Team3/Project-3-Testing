@@ -22,7 +22,7 @@ Feature: Product
   		| headphone    | http://localhost:3000/products/1 | Headphones   | A nice pair of headphones 	  | Price: $20.00 |
   		| teeshirt	   | http://localhost:3000/products/2 | TeeShirt	 | A nice TeeShirt 		  	   	  | Price: $45.00 |
   		| shopping bag | http://localhost:3000/products/3 | Shopping Bag | A reusable shopping bag   	  | Price: $2.50  |
-  		| baseball cap | http://localhost:3000/products/4 | Baseball Cap | A fancy cap for a fancy person | Price: $10.00 |
+  		| hat		   | http://localhost:3000/products/4 | Hat			 | A fancy cap for a fancy person | Price: $10.00 |
   		| coat		   | http://localhost:3000/products/5 | Coat		 | A nice coat 				   	  | Price: $80.00 |
 
 	# FILTER PRODUCT
@@ -32,9 +32,9 @@ Feature: Product
 	  Examples:
   		| real_product |
   		| headphones   |
-  		| teeshirt	   |
+  		| shirt	   	   |
   		| shopping bag |
-  		| baseball cap |
+  		| cap		   |
   		| coat		   |
 
 	Scenario Outline: Product filter negitive
@@ -63,5 +63,5 @@ Feature: Product
 	  | headphone 	 | This is a great product! |
 	  | teeshirt 	 | This is a great product! |
 	  | shopping bag | This is a great product! |
-	  | baseball cap | This is a great product! |
+	  | hat 		 | This is a great product! |
 	  | coat 		 | This is a great product! |
