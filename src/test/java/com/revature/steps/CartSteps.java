@@ -5,6 +5,7 @@ import com.revature.runner.MainRunner;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+import io.cucumber.java.ja.前提;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Action;
 import org.openqa.selenium.interactions.Actions;
@@ -203,7 +204,8 @@ public class CartSteps {
         @Then("The cart total should be accurate.")
         public void the_cart_total_should_be_accurate() {
              Assert.assertEquals(MainRunner.cartPage.totalCostofOrderDisplay.getText(),"$20.00");
-         }
+
+        }
      }
 
 
