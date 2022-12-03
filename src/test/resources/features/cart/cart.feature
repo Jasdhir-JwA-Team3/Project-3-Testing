@@ -1,4 +1,5 @@
-  Feature: Cart
+@cart
+Feature: Cart
     #This code runs before every single scenario
 
     Background:
@@ -41,7 +42,7 @@
 
 
 
-    #44 User is able to checkout the items in their cart after they added it from the main page.
+    #44 User is able to checkout the items in their cart after they added it from the main page.(PASS)
     Scenario: User is able to checkout the items in their cart after they added it from the main page.
       When The user clicks the cart icon for headphones.
       When The user navigates to the cart page.
@@ -65,24 +66,27 @@
         When They click next on the shipping page.
         Then They should be able to edit their payment information.
 
-    @cart
-    #46 User is able to press the "trash can" icon on their cart to remove an item from their cart.
+
+    #46 User is able to press the "trash can" icon on their cart to remove an item from their cart.(PASS)
     Scenario: User is able to press the "trash can" icon on their cart to remove an item from their cart.
          When The user clicks the cart icon for headphones.
          When The user navigates to the cart page.
          When The user presses the trashcan icon.
          Then Their item should be deleted from the page.
-    #47 User can add different items in their caThe user clicks add payment.rt.  (parameterize first test case)
 
-    #48 User can change the quantity of items in their cart.
-    Scenario: User can change tAn alert should popup saying please incorrect payment.he quantity of items in their cart.
+    #47 User can add different items in their cart.  (parameterize first test case)
+
+    #48 User can change the quantity of items in their cart.(PASS)
+    Scenario: User can change the quantity of items in their cart.
       When The user clicks the cart icon for headphones.
       When The user navigates to the cart page.
       When The user clicks the add quantity button.
       When The user clicks the subtract quantity button.
       Then The quantity should return to its original state.
 
-    #49  The cart total accurately adds up to the purchase price of each item plus shipping.
-      When The user clicks the cart icon for headphones.
-      When The user navigates to the cart page.
-      Then The cart total should equal to twenty.
+
+    #49  The cart total accurately adds up to the purchase price of each item plus shipping (PASS).
+      Scenario: The cart total accurately adds up to the purchase price of each item plus shipping.
+        When The user clicks the cart icon for headphones.
+        When The user navigates to the cart page.
+        Then The cart total should be accurate.

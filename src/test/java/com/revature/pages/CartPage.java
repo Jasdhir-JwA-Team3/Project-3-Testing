@@ -33,10 +33,13 @@ public class CartPage {
 
 
     //Buy Icons for items
-    @FindBy(xpath="//body/div[@id=" +
-            "'root']/div[@class='sc-himrzO " +
-            "gFAZYV']/div[1]/div[1]/div[1]/div[1]")
-        public WebElement headphonebuyicon;
+
+    @FindBy(xpath = "//body/div[@id='root']/div[3]/div[1]/div[1]/div[1]/div[1]/span[1]/*[1]")
+    public WebElement headphonesbuyicon;
+
+    @FindBy(xpath = "//body/div[@id='root']/div[3]/div[1]/div[1]/img[1]")
+    public WebElement headphonesImage;
+
 
 //    @FindBy(xpath=" ")
 //    public WebElement  ;
@@ -66,7 +69,7 @@ public class CartPage {
     @FindBy(xpath="//b[normalize-space()='ID:']")
     public WebElement headphoneidisplay;
 
-    @FindBy(xpath="//div[@class='sc-dmRaPn jYjlfm']")
+    @FindBy(xpath="//body/div[@id='root']/div[2]/div[1]/div[2]/div[1]/div[1]/div[2]")
     public WebElement headphonequantitydisplay;
 
     @FindBy(xpath="//body/div[@id='root']/div[2]/div[1]/div[2]/div[2]/div[4]/span[2]")

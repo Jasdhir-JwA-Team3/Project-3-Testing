@@ -5,6 +5,9 @@ import com.revature.runner.MainRunner;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Action;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
@@ -17,14 +20,17 @@ public class CartSteps {
 //Test40
     @When("The user clicks the cart icon for headphones.")
     public void the_user_clicks_the_cart_icon_for_headphones(){
-            MainRunner.cartPage.headphonebuyicon.click();
+        //try {
+        MainRunner.homePage.view_headphone();
+        wait.until(ExpectedConditions.visibilityOf(MainRunner.cartPage.headphonesbuyicon));
+        MainRunner.cartPage.headphonesbuyicon.click();
 
      }
     @When("The user navigates to the cart page.")
     public void the_user_navigates_to_the_cart_page() {
        MainRunner.cartPage.cartnavbartabicon.click();
        wait.until(ExpectedConditions.urlToBe(MainRunner.cartPage.carturlpage));
-     }
+       }
     @Then("The product should be displayed.")
     public void the_product_should_be_displayed() {
         MainRunner.cartPage.headphonenamedisplay.isDisplayed();
@@ -137,7 +143,6 @@ public class CartSteps {
       }
     @Then("An order confirmation should be displayed.")
     public void an_order_confirmation_should_be_displayed() {
-
         if(MainRunner.cartPage.thankyoufororderconfirmation.isDisplayed()){
             Assert.assertEquals(1,1);
         }else{
@@ -157,10 +162,10 @@ public class CartSteps {
       }
 
 //Test 46
-@When("The user presses the trashcan icon.")
+    @When("The user presses the trashcan icon.")
                 public void the_user_presses_the_trashcan_icon(){
                 MainRunner.cartPage.trashcanremoveitemquantityicon.click();
-                }
+    }
 
     @Then("Their item should be deleted from the page.")
     public void their_item_should_be_deleted_from_the_page() {
@@ -169,13 +174,36 @@ public class CartSteps {
              MainRunner.cartPage.headphonenamedisplay.isDisplayed();
          }catch(Exception e){
              Assert.assertEquals(1,1);
-             System.out.println("***");
             }
          }
 
 
+    @When("The user clicks the add quantity button.")
+    public void the_user_clicks_the_add_quantity_button(){
+        // Write code here that turns the phrase above into concrete actions
+         MainRunner.cartPage.quantityincreasebtn.click();
+
+    }
+    @When("The user clicks the subtract quantity button.")
+    public void the_user_clicks_the_subtract_quantity_button(){
+        MainRunner.cartPage.quantitydecreasebtn.click();
 
 
+    }
+    @Then("The quantity should return to its original state.")
+    public void the_quantity_should_return_to_its_original_state() {
+
+        if(MainRunner.cartPage.headphonequantitydisplay.isDisplayed()){
+            Assert.assertEquals(1,1);
+         }else{
+         }
+
+        }
+
+        @Then("The cart total should be accurate.")
+        public void the_cart_total_should_be_accurate() {
+             Assert.assertEquals(MainRunner.cartPage.totalCostofOrderDisplay.getText(),"$20.00");
+         }
      }
 
 
