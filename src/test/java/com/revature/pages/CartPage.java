@@ -77,6 +77,10 @@ public class CartPage {
     @FindBy(xpath="//body/div[@id='root']/div[2]/div[1]/div[2]/div[2]/div[2]/span[2]")
     public WebElement estimatedshippingcostdisplay ;
 
+      @FindBy(xpath="//h5[contains(text(),'Thank you for your order.')] ")
+    public WebElement thankyoufororderconfirmation ;
+
+
     //Buttons
     @FindBy(xpath="//body/div[@id='root']/div[2]/div[1]/div[2]/div[2]/button[1]")
     public WebElement checkoutnowbtn;
@@ -100,13 +104,12 @@ public class CartPage {
     public WebElement quantityincreasebtn;
 
     @FindBy(xpath="//body/div[@id='root']/div[2]/div[1]/div[2]/div[1]/div[1]/div[2]/div[2]/button[1]")
-    public WebElement quantitydecreasebtn  ;
+    public WebElement quantitydecreasebtn;
 
-//    @FindBy(xpath=" ")
-//    public WebElement  ;
-//
-//    @FindBy(xpath=" ")
-//    public WebElement  ;
+    @FindBy(xpath="//body/div[@id='root']/main[1]/div[1]/form[1]/div[2]/button[1]")
+    public WebElement nextbuttonshippingpage;
+
+
 
     //Fields
     @FindBy(xpath="//input[@id='firstName']")
@@ -139,14 +142,15 @@ public class CartPage {
     @FindBy(xpath="//input[@id='ccv']")
     public WebElement cvvinputfield;
 
-//
+
 //    @FindBy(xpath=" ")
 //    public WebElement  ;
-//
+
 //    @FindBy(xpath=" ")
 //    public WebElement  ;
-//
+
 //    @FindBy(xpath="")
 //    public WebElement  ;
+
 
 }
