@@ -34,7 +34,6 @@ public class ProductSteps {
     @Given("User is on the home page")
     public void user_is_on_the_home_page() {
         wait.until(ExpectedConditions.urlToBe("http://localhost:3000/"));
-        System.out.println("***");
         Assert.assertEquals(MainRunner.driver.getCurrentUrl(), "http://localhost:3000/");
     }
 

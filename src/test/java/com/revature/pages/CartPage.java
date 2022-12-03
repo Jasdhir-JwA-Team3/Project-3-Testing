@@ -12,22 +12,24 @@ public class CartPage {
     }
 
     //Page urls
-    String carturlpage = "http://localhost:3000/cart";
-    String checkouturlpage = "http://localhost:3000/checkout";
+    public String carturlpage = "http://localhost:3000/cart";
+    public String checkouturlpage = "http://localhost:3000/checkout";
+
+    public String profileurlpage = "http://localhost:3000/userProfile";
 
     //Address information
-    String fname = "Anwar";
-    String lname = "Darkazanli";
-    String address = "777 Orange St.";
-    String State = "New York";
-    String city = "Queens";
-    String zip = " 30024";
-    String country = "US";
+    public String fname = "Anwar";
+    public String lname = "Darkazanli";
+    public String address = "777 Orange St.";
+    public String State = "New York";
+    public String city = "Queens";
+    public String zip = " 30024";
+    public String country = "US";
 
     //CreditCardInformation
-    String creditcardnumber = "abc";
-    String cvvnumber ="123";
-    String expdatenumber = "08/29/1992";
+    public String creditcardnumber = "abc";
+    public String cvvnumber ="123";
+    public String expdatenumber = "08/29/1992";
 
 
     //Buy Icons for items
@@ -39,8 +41,7 @@ public class CartPage {
 //    @FindBy(xpath=" ")
 //    public WebElement  ;
 //
-//    @FindBy(xpath=" ")
-//    public WebElement  ;
+
 
 
     //Nav Bar Tabs
@@ -59,7 +60,7 @@ public class CartPage {
 
 
     //Display texts
-    @FindBy(xpath="//span[@class='sc-hAZoDl gYrcjl']")
+    @FindBy(xpath="//body/div[@id='root']/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/span[1]")
     public WebElement headphonenamedisplay;
 
     @FindBy(xpath="//b[normalize-space()='ID:']")
@@ -77,8 +78,13 @@ public class CartPage {
     @FindBy(xpath="//body/div[@id='root']/div[2]/div[1]/div[2]/div[2]/div[2]/span[2]")
     public WebElement estimatedshippingcostdisplay ;
 
-      @FindBy(xpath="//h5[contains(text(),'Thank you for your order.')] ")
+    @FindBy(xpath="//h5[contains(text(),'Thank you for your order.')] ")
     public WebElement thankyoufororderconfirmation ;
+
+    @FindBy(xpath="//td[contains(text(),'1111222233334444')]")
+    public WebElement originalcardnumberdisplay;
+
+
 
 
     //Buttons
@@ -109,6 +115,11 @@ public class CartPage {
     @FindBy(xpath="//body/div[@id='root']/main[1]/div[1]/form[1]/div[2]/button[1]")
     public WebElement nextbuttonshippingpage;
 
+    @FindBy(xpath="//body/div[@id='root']/main[1]/div[1]/div[3]/button[2] ")
+    public WebElement placeorderbutton;
+
+     @FindBy(xpath="//body/div[@id='root']/main[1]/div[1]/form[1]/div[1]/button[3]")
+     public WebElement fakeeditpaymentbutton;
 
 
     //Fields
