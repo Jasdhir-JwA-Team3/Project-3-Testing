@@ -155,6 +155,10 @@ public class HomePage {
         mouseOver.perform();
     }
 
+    //EDIT PRODUCTS
+    @FindBy(xpath = "//strong[normalize-space()='EDIT PRODUCTS']")
+    public WebElement editProducts;
+
     // EXPAND PRODUCT DETAILS
     @FindBy(xpath = "//div[2]/div[3]/div[1]/h2[1]/button[1]")
     public WebElement viewProductButton;
