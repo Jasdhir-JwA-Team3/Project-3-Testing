@@ -62,7 +62,7 @@ public class ProductSteps {
                 WebElement bagViewOption = wait.until(ExpectedConditions.visibilityOf(MainRunner.homePage.selectBag));
                 bagViewOption.click();
             }
-            case "baseball cap" -> {
+            case "hat" -> {
                 MainRunner.homePage.hover_hat();
                 WebElement hatViewOption = wait.until(ExpectedConditions.visibilityOf(MainRunner.homePage.selectHat));
                 hatViewOption.click();
@@ -134,9 +134,8 @@ public class ProductSteps {
     }
     @Then("Product review should be deleted")
     public void productReviewShouldBeDeleted() {
+        wait.until(ExpectedConditions.visibilityOf(MainRunner.productModel.reviewerName));
         WebElement deleteReview = wait.until(ExpectedConditions.visibilityOf(MainRunner.productModel.deleteButton));
         deleteReview.click();
-        wait.until(ExpectedConditions.visibilityOf(MainRunner.productModel.reviewDeleted));
-        Assert.assertTrue(MainRunner.productModel.review_deleted());
     }
 }

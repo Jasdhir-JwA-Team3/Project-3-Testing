@@ -22,10 +22,6 @@ public class ProductModel {
     @FindBy(xpath = "//p[contains(text(),'No reviews..')]")
     public WebElement reviewDeleted;
 
-    public boolean review_deleted() {
-        return reviewDeleted.isDisplayed();
-    }
-
     // PRODUCT NAME
     @FindBy(xpath = "//h2[@id='customized-dialog-title']")
     public WebElement getProductTile;
@@ -61,4 +57,8 @@ public class ProductModel {
     // DELETE BUTTON
     @FindBy(xpath = "//div[2]/div[3]/div[1]/div[6]/div[1]/div[1]/div[1]/div[1]/div[1]/button[1]")
     public WebElement deleteButton;
+
+    // REVIEWER NAME
+    @FindBy(xpath = "//p[contains(text(),'notingham')]")
+    public WebElement reviewerName;
 }
