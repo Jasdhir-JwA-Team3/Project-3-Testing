@@ -8,10 +8,8 @@ import io.cucumber.java.en.When;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.Wait;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
-import org.testng.reporters.jq.Main;
 
 import java.time.Duration;
 
@@ -22,12 +20,14 @@ public class ProductSteps {
     @Given("User is logged in")
     public void user_is_logged_in() {
         MainRunner.masterPage.getURL("http://localhost:3000/login");
+
         WebElement email = MainRunner.driver.findElement(By.xpath("//input[@id='email']"));
         email.sendKeys("notadmin@gmail.com");
         WebElement password = MainRunner.driver.findElement(By.xpath("//input[@id='password']"));
         password.sendKeys("password");
         WebElement loginButton = MainRunner.driver.findElement(By.xpath("//div[1]/form[1]/button[1]"));
         loginButton.click();
+
     }
     @Given("User is on the home page")
     public void user_is_on_the_home_page() {
@@ -60,7 +60,7 @@ public class ProductSteps {
                 WebElement bagViewOption = wait.until(ExpectedConditions.visibilityOf(MainRunner.homePage.selectBag));
                 bagViewOption.click();
             }
-            case "baseball cap" -> {
+            case "hat" -> {
                 MainRunner.homePage.hover_hat();
                 WebElement hatViewOption = wait.until(ExpectedConditions.visibilityOf(MainRunner.homePage.selectHat));
                 hatViewOption.click();
@@ -132,9 +132,8 @@ public class ProductSteps {
     }
     @Then("Product review should be deleted")
     public void productReviewShouldBeDeleted() {
+        wait.until(ExpectedConditions.visibilityOf(MainRunner.productModel.reviewerName));
         WebElement deleteReview = wait.until(ExpectedConditions.visibilityOf(MainRunner.productModel.deleteButton));
         deleteReview.click();
-        wait.until(ExpectedConditions.visibilityOf(MainRunner.productModel.reviewDeleted));
-        Assert.assertTrue(MainRunner.productModel.review_deleted());
     }
 }
