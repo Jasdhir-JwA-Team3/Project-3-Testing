@@ -22,12 +22,14 @@ public class ProductSteps {
     @Given("User is logged in")
     public void user_is_logged_in() {
         MainRunner.masterPage.getURL("http://localhost:3000/login");
+
         WebElement email = MainRunner.driver.findElement(By.xpath("//input[@id='email']"));
         email.sendKeys("notadmin@gmail.com");
         WebElement password = MainRunner.driver.findElement(By.xpath("//input[@id='password']"));
         password.sendKeys("password");
         WebElement loginButton = MainRunner.driver.findElement(By.xpath("//div[1]/form[1]/button[1]"));
         loginButton.click();
+
     }
     @Given("User is on the home page")
     public void user_is_on_the_home_page() {

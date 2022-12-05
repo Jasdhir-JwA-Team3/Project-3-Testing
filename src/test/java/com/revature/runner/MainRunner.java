@@ -20,6 +20,8 @@ public class MainRunner extends AbstractTestNGCucumberTests {
     public static HomePage homePage;
     public static ProductPage productPage;
 
+    public static CartPage cartPage;
+
     public static ProductModel productModel;
 
     @BeforeMethod
@@ -33,6 +35,7 @@ public class MainRunner extends AbstractTestNGCucumberTests {
         productPage = new ProductPage(driver);
 
         productModel = new ProductModel(driver);
+        cartPage = new CartPage(driver);
     }
 
     @AfterMethod
