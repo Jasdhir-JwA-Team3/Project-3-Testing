@@ -32,9 +32,9 @@ Feature: Product
 	  Examples:
   		| real_product |
   		| headphones   |
-  		| shirt	   	   |
+  		| teeshirt	   |
   		| shopping bag |
-  		| cap		   |
+  		| hat		   |
   		| coat		   |
 
 	Scenario Outline: Product filter negitive
