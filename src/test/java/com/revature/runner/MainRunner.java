@@ -13,7 +13,7 @@ import org.testng.annotations.BeforeMethod;
 import java.time.Duration;
 
 
-@CucumberOptions(features = "src/test/resources/features/", glue = "com.revature.steps")
+@CucumberOptions(features = "src/test/resources/features/", glue = "com.revature.steps", tags = "@admin")
 
 public class MainRunner extends AbstractTestNGCucumberTests {
     public static WebDriver driver;
@@ -22,9 +22,7 @@ public class MainRunner extends AbstractTestNGCucumberTests {
     public static HomePage homePage;
     public static ProductPage productPage;
     public static AdminPage adminPage;
-
     public static CartPage cartPage;
-
     public static ProductModel productModel;
     public static CreateProductPage createProductPage;
 
@@ -32,7 +30,7 @@ public class MainRunner extends AbstractTestNGCucumberTests {
     public void setUp() {
         WebDriverManager.chromedriver().setup();
         driver = new ChromeDriver();
-        wait = new WebDriverWait(driver, Duration.ofSeconds(3));
+        wait = new WebDriverWait(driver, Duration.ofSeconds(1));
 
         masterPage = new MasterPage(driver);
         homePage = new HomePage(driver);

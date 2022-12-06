@@ -17,8 +17,13 @@ public class AdminPage {
     @FindBy(xpath = "//button[normalize-space()='Back to Products']")
     public WebElement backtoProductButton;
 
-
     @FindBy(xpath = "//*[@id=\"root\"]/div[2]/div/div/button")
     public WebElement createProduct;
+
+    @FindBy(xpath = "//button[normalize-space()='Update']")
+    public WebElement updateProduct;
+
+    @FindBy(xpath ="(//div/button)[7]")
+    public WebElement productToClick;
 
 }

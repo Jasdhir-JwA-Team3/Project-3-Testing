@@ -102,8 +102,16 @@ public class ProductSteps {
     }
     @Then("Product should be visible")
     public void productShouldBeVisible() {
-        wait.until(ExpectedConditions.visibilityOf(MainRunner.homePage.productExist));
-        Assert.assertTrue(MainRunner.homePage.product_exist());
+        try
+        {
+            wait.until(ExpectedConditions.visibilityOf(MainRunner.homePage.productExist));
+            Assert.assertTrue(MainRunner.homePage.product_exist());
+        }
+        catch (org.openqa.selenium.StaleElementReferenceException e)
+        {
+            wait.until(ExpectedConditions.visibilityOf(MainRunner.homePage.productExist));
+            Assert.assertTrue(MainRunner.homePage.product_exist());
+        }
     }
     @Then("Product should not be visible")
     public void productShouldNotBeVisible() {
