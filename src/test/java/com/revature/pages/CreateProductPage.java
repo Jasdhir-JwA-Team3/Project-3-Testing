@@ -11,13 +11,13 @@ public class CreateProductPage {
     }
     @FindBy(xpath = "//button[normalize-space()='Return to Products']")
     public WebElement returntoProductButton;
-    @FindBy(xpath = "(//*[@id=\"outlined-required\"])[1]")
+    @FindBy(xpath = "(//div/input)[1]")
     public WebElement nameInput;
-    @FindBy(xpath = "(//*[@id=\"outlined-required\"])[2]")
+    @FindBy(xpath = "(//div/input)[2]")
     public WebElement descriptionInput;
-    @FindBy(xpath = "(//*[@id=\"outlined-required\"])[3]")
+    @FindBy(xpath = "(//div/input)[3]")
     public WebElement imageInput;
-    @FindBy(xpath = "(//*[@id=\"outlined-required\"])[4]")
+    @FindBy(xpath = "(//div/input)[4]")
     public WebElement priceInput;
 
     @FindBy(xpath = "//button[normalize-space()='create product']")

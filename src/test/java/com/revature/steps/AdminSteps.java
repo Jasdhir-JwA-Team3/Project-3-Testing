@@ -14,6 +14,12 @@ import org.testng.Assert;
 import org.testng.reporters.jq.Main;
 
 public class AdminSteps {
+    private String name = "";
+    private String description = "";
+    private String image = "";
+    private String price = "";
+
+
     @Given("Admin is logged in")
     public void adminIsLoggedIn() {
         MainRunner.masterPage.getURL("http://localhost:3000/login");
@@ -45,7 +51,6 @@ public class AdminSteps {
 
     @And("Admin fills in name {string}")
     public void adminFillsInName(String productName) {
-        MainRunner.wait.until(ExpectedConditions.visibilityOf(MainRunner.createProductPage.returntoProductButton));
         MainRunner.createProductPage.nameInput.sendKeys(productName);
     }
 
@@ -77,8 +82,64 @@ public class AdminSteps {
 
     @Then("Notification for missing {string} should appear")
     public void notificationForMissingShouldAppear(String missing) {
-        Alert alert = MainRunner.wait.until(ExpectedConditions.alertIsPresent());
-        String expectedAlert = missing + " cannot be blank.";
-        Assert.assertEquals(alert.getText(), expectedAlert);
+        Alert alert = null;
+        if(MainRunner.wait.until(ExpectedConditions.alertIsPresent())==null){
+            Assert.assertNotNull(alert);
+        } else {
+            alert = MainRunner.driver.switchTo().alert();
+            String expectedAlertTest = missing + " cannot be empty.";
+            Assert.assertEquals(alert.getText(), expectedAlertTest);
+            alert.accept();
+        }
+    }
+
+    @Then("Admin clicks update")
+    public void adminClicksUpdate() {
+        MainRunner.adminPage.updateProduct.click();
+        MainRunner.driver.navigate().refresh();
+        MainRunner.wait.until(ExpectedConditions.visibilityOf(MainRunner.adminPage.backtoProductButton));
+    }
+
+    @Then("Product should update name with {string}")
+    public void productShouldUpdateNameWith(String name) {
+        String curName = MainRunner.adminPage.nameH3.getText();
+        Assert.assertEquals(curName, name);
+    }
+
+    @And("description with {string}")
+    public void descriptionWith(String description) {
+        String curDesc = MainRunner.adminPage.descriptionH5.getText();
+        Assert.assertEquals(curDesc, description);
+    }
+
+    @And("image with {string}")
+    public void imageWith(String image) {
+        String curLink = MainRunner.adminPage.imageLink.getAttribute("src");
+        Assert.assertEquals(curLink, image);
+
+    }
+
+    @And("price with {string}")
+    public void priceWith(String price) {
+        String curPrice = MainRunner.adminPage.priceH4.getText();
+        float intPrice = Float.parseFloat(price);
+        price = String.format("$%-10.2f",intPrice);
+        Assert.assertEquals(curPrice, price.trim());
+    }
+
+    @And("Admin clicks on a product")
+    public void adminClicksOnAProduct() {
+        MainRunner.adminPage.productToClick.click();
+        MainRunner.wait.until(ExpectedConditions.visibilityOf(MainRunner.adminPage.backtoProductButton));
+    }
+
+    @And("Admin fills the description {string}")
+    public void adminFillsTheDescription(String description) {
+        adminFillsInImageURL(description);
+    }
+
+    @And("Admin fills the image URL {string}")
+    public void adminFillsTheImageURL(String image) {
+        adminFillsInDescription(image);
     }
 }
