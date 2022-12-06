@@ -14,11 +14,6 @@ import org.testng.Assert;
 import org.testng.reporters.jq.Main;
 
 public class AdminSteps {
-    private String name = "";
-    private String description = "";
-    private String image = "";
-    private String price = "";
-
 
     @Given("Admin is logged in")
     public void adminIsLoggedIn() {
@@ -83,13 +78,14 @@ public class AdminSteps {
     @Then("Notification for missing {string} should appear")
     public void notificationForMissingShouldAppear(String missing) {
         Alert alert = null;
-        if(MainRunner.wait.until(ExpectedConditions.alertIsPresent())==null){
-            Assert.assertNotNull(alert);
-        } else {
-            alert = MainRunner.driver.switchTo().alert();
+        try {
+            alert = MainRunner.wait.until(ExpectedConditions.alertIsPresent());
+            MainRunner.driver.switchTo().alert();
             String expectedAlertTest = missing + " cannot be empty.";
             Assert.assertEquals(alert.getText(), expectedAlertTest);
             alert.accept();
+        } catch (org.openqa.selenium.TimeoutException e) {
+            Assert.assertNotNull(alert);
         }
     }
 
