@@ -16,7 +16,8 @@ public class HomePage {
 
     @FindBy(xpath = "//strong[contains(text(),'REGISTER')]")
     public WebElement registerLink;
-
+    @FindBy(xpath = "//strong[normalize-space()='ORDERS']")
+    public WebElement ordersButton;
     @FindBy(xpath = "//strong[contains(text(),'SIGN IN')]")
     public WebElement signInLink;
 
