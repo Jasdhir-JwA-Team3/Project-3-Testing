@@ -96,22 +96,35 @@ public class AdminSteps {
     @Then("Admin clicks update")
     public void adminClicksUpdate() {
         MainRunner.adminPage.updateProduct.click();
+        MainRunner.driver.navigate().refresh();
+        MainRunner.wait.until(ExpectedConditions.visibilityOf(MainRunner.adminPage.backtoProductButton));
     }
 
     @Then("Product should update name with {string}")
     public void productShouldUpdateNameWith(String name) {
+        String curName = MainRunner.adminPage.nameH3.getText();
+        Assert.assertEquals(curName, name);
     }
 
     @And("description with {string}")
     public void descriptionWith(String description) {
+        String curDesc = MainRunner.adminPage.descriptionH5.getText();
+        Assert.assertEquals(curDesc, description);
     }
 
     @And("image with {string}")
     public void imageWith(String image) {
+        String curLink = MainRunner.adminPage.imageLink.getAttribute("src");
+        Assert.assertEquals(curLink, image);
+
     }
 
     @And("price with {string}")
     public void priceWith(String price) {
+        String curPrice = MainRunner.adminPage.priceH4.getText();
+        float intPrice = Float.parseFloat(price);
+        price = String.format("$%-10.2f",intPrice);
+        Assert.assertEquals(curPrice, price.trim());
     }
 
     @And("Admin clicks on a product")
@@ -120,13 +133,13 @@ public class AdminSteps {
         MainRunner.wait.until(ExpectedConditions.visibilityOf(MainRunner.adminPage.backtoProductButton));
     }
 
-    @And("Admin fills in description with {string}")
-    public void adminFillsInDescriptionWith(String description) {
+    @And("Admin fills the description {string}")
+    public void adminFillsTheDescription(String description) {
         adminFillsInImageURL(description);
     }
 
-    @And("Admin fills in image URL with {string}")
-    public void adminFillsInImageURLWith(String image) {
+    @And("Admin fills the image URL {string}")
+    public void adminFillsTheImageURL(String image) {
         adminFillsInDescription(image);
     }
 }
