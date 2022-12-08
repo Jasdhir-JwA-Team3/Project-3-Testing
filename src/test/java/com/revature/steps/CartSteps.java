@@ -17,7 +17,7 @@ import java.time.Duration;
 import java.util.NoSuchElementException;
 
 public class CartSteps {
-    WebDriverWait wait = new WebDriverWait(MainRunner.driver, Duration.ofSeconds(10));
+    WebDriverWait wait = new WebDriverWait(MainRunner.driver, Duration.ofSeconds(1));
 //Test40
     @When("The user clicks the cart icon for headphones.")
     public void the_user_clicks_the_cart_icon_for_headphones(){
@@ -34,17 +34,18 @@ public class CartSteps {
        }
     @Then("The product should be displayed.")
     public void the_product_should_be_displayed() {
-        MainRunner.cartPage.headphonenamedisplay.isDisplayed();
+        Assert.assertTrue(MainRunner.cartPage.headphonenamedisplay.isDisplayed());
 
      }
     @Then("The product should have an id of.")
     public void the_product_should_have_an_id_of() {
-         MainRunner.cartPage.headphoneidisplay.isDisplayed();
+        Assert.assertTrue(MainRunner.cartPage.headphoneidisplay.isDisplayed());
 
     }
     @Then("The product should have a cost of.")
     public void the_product_should_have_a_cost_of() {
-        MainRunner.cartPage.totalCostofOrderDisplay.isDisplayed();
+
+        Assert.assertTrue(MainRunner.cartPage.totalCostofOrderDisplay.isDisplayed());
       }
 
      //Test41
@@ -97,7 +98,7 @@ public class CartSteps {
     @Then("An alert should popup saying please incorrect payment.")
     public void anAlertShouldPopupSayingPleaseIncorrectPayment() {
         MainRunner.driver.switchTo().alert().accept();
-
+        //add assert statement here
     }
 
     //Test 43
@@ -109,6 +110,8 @@ public class CartSteps {
     @Then("Their payment information should no longer be displayed on the page.")
     public void their_payment_information_should_no_longer_be_displayed_on_the_page() {
 
+        //assert something that has to do with the actions you are performing
+        //Assert.assertEquals(1,2) will always assert false
         if(MainRunner.cartPage.originalcardnumberdisplay.isDisplayed()){
             Assert.assertEquals(1,2);
         }else{
@@ -144,6 +147,8 @@ public class CartSteps {
       }
     @Then("An order confirmation should be displayed.")
     public void an_order_confirmation_should_be_displayed() {
+        //assert something that has to do with the actions you are performing
+        //Assert.assertEquals(1,2) will always assert false
         if(MainRunner.cartPage.thankyoufororderconfirmation.isDisplayed()){
             Assert.assertEquals(1,1);
         }else{
@@ -153,6 +158,8 @@ public class CartSteps {
 
     @Then("They should be able to edit their payment information.")
     public void they_should_be_able_to_edit_their_payment_information(){
+        //assert something that has to do with the actions you are performing
+        //Assert.assertEquals(1,2) will always assert false
         try{
             MainRunner.cartPage.fakeeditpaymentbutton.click();
         }catch(Exception e){
@@ -170,7 +177,8 @@ public class CartSteps {
 
     @Then("Their item should be deleted from the page.")
     public void their_item_should_be_deleted_from_the_page() {
-        // Write code here that turns the phrase above into concrete actions
+        //assert something that has to do with the actions you are performing
+        //Assert.assertEquals(1,2) will always assert false
          try{
              MainRunner.cartPage.headphonenamedisplay.isDisplayed();
          }catch(Exception e){
@@ -193,7 +201,8 @@ public class CartSteps {
     }
     @Then("The quantity should return to its original state.")
     public void the_quantity_should_return_to_its_original_state() {
-
+        //assert something that has to do with the actions you are performing
+        //Assert.assertEquals(1,2) will always assert false
         if(MainRunner.cartPage.headphonequantitydisplay.isDisplayed()){
             Assert.assertEquals(1,1);
          }else{
