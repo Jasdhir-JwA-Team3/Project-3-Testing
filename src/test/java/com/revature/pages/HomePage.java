@@ -14,6 +14,22 @@ public class HomePage {
         PageFactory.initElements(driver, this);
     }
 
+    @FindBy(xpath = "//strong[contains(text(),'REGISTER')]")
+    public WebElement registerLink;
+    @FindBy(xpath = "//strong[normalize-space()='ORDERS']")
+    public WebElement ordersButton;
+    @FindBy(xpath = "//strong[contains(text(),'SIGN IN')]")
+    public WebElement signInLink;
+
+    @FindBy(xpath = "//strong[contains(text(),'PROFILE')]")
+    public WebElement profileLink;
+
+    @FindBy(xpath = "//strong[contains(text(),'LOGOUT')]")
+    public WebElement logoutLink;
+
+    @FindBy(xpath = "//input[@type='checkbox']")
+    public WebElement modeChanger;
+
     // CHECK PRODUCT
     @FindBy(xpath = "//div[1]/div[3]/div[1]/div[1]")
     public WebElement productExist;
@@ -154,6 +170,10 @@ public class HomePage {
         Action mouseOver = builder.moveToElement(selectCoat).build();
         mouseOver.perform();
     }
+
+    //EDIT PRODUCTS
+    @FindBy(xpath = "//strong[normalize-space()='EDIT PRODUCTS']")
+    public WebElement editProducts;
 
     // EXPAND PRODUCT DETAILS
     @FindBy(xpath = "//div[2]/div[3]/div[1]/h2[1]/button[1]")
