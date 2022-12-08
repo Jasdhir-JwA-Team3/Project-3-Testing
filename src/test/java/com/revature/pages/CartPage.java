@@ -41,9 +41,10 @@ public class CartPage {
     public WebElement headphonesImage;
 
 
-//    @FindBy(xpath=" ")
-//    public WebElement  ;
-//
+    //nonexistent alert
+    @FindBy(xpath=" ")
+    public WebElement alert ;
+
 
 
 
