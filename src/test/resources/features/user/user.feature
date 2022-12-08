@@ -88,6 +88,7 @@
       When User enters payment information "1234567891011121", "01/01/2050", "123"
       Then user clicks add payment and creates a new payment method
 
+    #Look into using a pass/fail column in order to get rid of duplicate code
     @FailUpdatePayment
     Scenario Outline: User fails to create payment
       When user logs in to edit card info
@@ -103,7 +104,14 @@
     @DarkLight
     Scenario: User toggles light and dark mode
       When user opens Home page
-      When user clicks to switch to light mode
       Then user is on light mode
       When user clicks to switch to dark mode
       Then user is on dark mode
+
+    @ClashingAppearance
+    Scenario: Appearance settings not saved
+      When user1 logs in
+      When user1 changes appearance to dark mode
+      When user logs out
+      When user2 logs in
+      Then user2 should have light mode appearance

@@ -5,6 +5,7 @@ import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.openqa.selenium.By;
+import org.openqa.selenium.StaleElementReferenceException;
 import org.openqa.selenium.TimeoutException;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -188,12 +189,18 @@ public class UserSteps {
             if(!popUp.getText().equals("You've successfully updated your profile!")) {
                 flag = false;
             }
-            MainRunner.userProfilePage.passwordInput.clear();
-            MainRunner.userProfilePage.passwordInput.sendKeys(userInfo[1]);
-            MainRunner.userProfilePage.updateButton.click();
+        }
+        catch (StaleElementReferenceException e) {
+            WebElement popUp = wait.until(ExpectedConditions.visibilityOf(MainRunner.driver.findElement(By
+                    .xpath("//div/main[2]/div/form/div/div[4]/div[1]/div/div/div[2]"))));
+            if(!popUp.getText().equals("You've successfully updated your profile!")) {
+                flag = false;
+            }
         }
         catch (TimeoutException e) {
             flag = false;
+        }
+        finally {
             MainRunner.userProfilePage.passwordInput.clear();
             MainRunner.userProfilePage.passwordInput.sendKeys(userInfo[1]);
             MainRunner.userProfilePage.updateButton.click();
@@ -210,12 +217,18 @@ public class UserSteps {
             if(!popUp.getText().equals("You've successfully updated your profile!")) {
                 flag = false;
             }
-            MainRunner.userProfilePage.passwordInput.clear();
-            MainRunner.userProfilePage.passwordInput.sendKeys(userInfo[1]);
-            MainRunner.userProfilePage.updateButton.click();
+        }
+        catch (StaleElementReferenceException e) {
+            WebElement popUp = wait.until(ExpectedConditions.visibilityOf(MainRunner.driver.findElement(By
+                    .xpath("//div/main[2]/div/form/div/div[4]/div[1]/div/div/div[2]"))));
+            if(!popUp.getText().equals("You've successfully updated your profile!")) {
+                flag = false;
+            }
         }
         catch (TimeoutException e) {
             flag = false;
+        }
+        finally {
             MainRunner.userProfilePage.passwordInput.clear();
             MainRunner.userProfilePage.passwordInput.sendKeys(userInfo[1]);
             MainRunner.userProfilePage.updateButton.click();
@@ -295,34 +308,53 @@ public class UserSteps {
         Assert.assertFalse(flag);
     }
 
-    //This still needs to be worked on. There is a bug with changing appearance
-    //the checkbox starts out with the dark mode checked even though it is visually on light mode
-    //switching to light mode initially does not change the appearance since it is already light
-    @When("user clicks to switch to light mode")
-    public void user_clicks_to_switch_to_light_mode() {
-        String backgroundColor = MainRunner.driver.findElement(By.xpath("//body")).
-                getCssValue("background-color");
-        System.out.println(backgroundColor);
-        MainRunner.homePage.modeChanger.click();
-    }
     @Then("user is on light mode")
     public void user_is_on_light_mode() {
         String backgroundColor = MainRunner.driver.findElement(By.xpath("//body")).
                 getCssValue("background-color");
-        System.out.println(backgroundColor);
+        Assert.assertEquals(backgroundColor, "rgba(255, 255, 255, 1)");
+        Assert.assertTrue(MainRunner.homePage.modeChanger.isSelected());
         MainRunner.homePage.modeChanger.click();
-        String backgroundColor2 = MainRunner.driver.findElement(By.xpath("//body")).
-                getCssValue("background-color");
-        System.out.println(backgroundColor2);
     }
     @When("user clicks to switch to dark mode")
     public void user_clicks_to_switch_to_dark_mode() {
-        // Write code here that turns the phrase above into concrete actions
-        throw new io.cucumber.java.PendingException();
+        MainRunner.homePage.modeChanger.click();
     }
     @Then("user is on dark mode")
     public void user_is_on_dark_mode() {
-        // Write code here that turns the phrase above into concrete actions
-        throw new io.cucumber.java.PendingException();
+        String backgroundColor = MainRunner.driver.findElement(By.xpath("//body")).
+                getCssValue("background-color");
+        Assert.assertEquals(backgroundColor, "rgba(18, 18, 18, 1)");
+        Assert.assertFalse(MainRunner.homePage.modeChanger.isSelected());
+    }
+
+    @When("user1 logs in")
+    public void user1_logs_in() {
+        user_logs_in_to_edit_card_info();
+    }
+    @When("user1 changes appearance to dark mode")
+    public void user1_changes_appearance_to_dark_mode() {
+        MainRunner.homePage.modeChanger.click();
+        MainRunner.homePage.modeChanger.click();
+    }
+    @When("user logs out")
+    public void user_logs_out() {
+       wait.until(ExpectedConditions.visibilityOf(MainRunner.homePage.logoutLink));
+        MainRunner.homePage.logoutLink.click();
+    }
+    @When("user2 logs in")
+    public void user2_logs_in() {
+        wait.until(ExpectedConditions.visibilityOf(MainRunner.homePage.signInLink));
+        MainRunner.homePage.signInLink.click();
+        wait.until(ExpectedConditions.urlToBe("http://localhost:3000/login"));
+        MainRunner.loginPage.emailInput.sendKeys("notadmin@gmail.com");
+        MainRunner.loginPage.passwordInput.sendKeys("password");
+        MainRunner.loginPage.signinButton.click();
+    }
+    @Then("user2 should have light mode appearance")
+    public void user2_should_have_light_mode_appearance() {
+        String backgroundColor = MainRunner.driver.findElement(By.xpath("//body")).
+                getCssValue("background-color");
+        Assert.assertEquals(backgroundColor, "rgba(255, 255, 255, 1)");
     }
 }
