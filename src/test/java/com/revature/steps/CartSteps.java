@@ -6,6 +6,7 @@ import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import io.cucumber.java.ja.前提;
+import org.openqa.selenium.TimeoutException;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Action;
 import org.openqa.selenium.interactions.Actions;
@@ -17,15 +18,19 @@ import java.time.Duration;
 import java.util.NoSuchElementException;
 
 public class CartSteps {
-    WebDriverWait wait = new WebDriverWait(MainRunner.driver, Duration.ofSeconds(10));
+    WebDriverWait wait = new WebDriverWait(MainRunner.driver, Duration.ofSeconds(2));
 //Test40
     @When("The user clicks the cart icon for headphones.")
     public void the_user_clicks_the_cart_icon_for_headphones(){
-        //try {
-        MainRunner.homePage.view_headphone();
-        wait.until(ExpectedConditions.visibilityOf(MainRunner.cartPage.headphonesbuyicon));
-        MainRunner.cartPage.headphonesbuyicon.click();
-
+        Boolean flag = true;
+        try {
+            MainRunner.homePage.view_headphone();
+            wait.until(ExpectedConditions.visibilityOf(MainRunner.cartPage.headphonesbuyicon));
+            MainRunner.cartPage.headphonesbuyicon.click();
+        }catch(Exception e){
+            flag = false;
+             Assert.assertTrue(flag);
+        }
      }
     @When("The user navigates to the cart page.")
     public void the_user_navigates_to_the_cart_page() {
@@ -34,22 +39,24 @@ public class CartSteps {
        }
     @Then("The product should be displayed.")
     public void the_product_should_be_displayed() {
-        MainRunner.cartPage.headphonenamedisplay.isDisplayed();
-
+        Assert.assertTrue(MainRunner.cartPage.headphonenamedisplay.isDisplayed());
      }
+
     @Then("The product should have an id of.")
     public void the_product_should_have_an_id_of() {
-         MainRunner.cartPage.headphoneidisplay.isDisplayed();
+        Assert.assertTrue(MainRunner.cartPage.headphoneidisplay.isDisplayed());
 
     }
     @Then("The product should have a cost of.")
     public void the_product_should_have_a_cost_of() {
-        MainRunner.cartPage.totalCostofOrderDisplay.isDisplayed();
+        Assert.assertTrue(MainRunner.cartPage.totalCostofOrderDisplay.isDisplayed());
       }
 
-     //Test41
+
     @When("The user clicks check out now.")
     public void the_user_clicks_check_out_now() {
+
+
         MainRunner.cartPage.checkoutnowbtn.click();
      }
     @Then("They should be navigated to the checkout page.")
@@ -89,35 +96,37 @@ public class CartSteps {
 
     @When("The user clicks add payment.")
     public void theUserClicksAddPayment() {
-        MainRunner.cartPage.addpaymentsubmitbutton.click();
-
+      MainRunner.cartPage.addpaymentsubmitbutton.click();
     }
 
 
     @Then("An alert should popup saying please incorrect payment.")
     public void anAlertShouldPopupSayingPleaseIncorrectPayment() {
-        MainRunner.driver.switchTo().alert().accept();
-
+        Boolean flag = true;
+        try {
+            wait.until(ExpectedConditions.visibilityOf(MainRunner.cartPage.alert));
+            Assert.assertTrue(flag);
+        } catch(TimeoutException e){
+            flag = false;
+        }
+        Assert.assertTrue(flag);
     }
 
     //Test 43
     @When("A user deletes their payment information.")
     public void a_user_deletes_their_payment_information() {
-        MainRunner.cartPage.deletepaymentbutton.click();
-
+        try {
+            MainRunner.cartPage.deletepaymentbutton.click();
+        }catch(Exception e){
+            Assert.assertFalse(MainRunner.cartPage.originalcardnumberdisplay.isDisplayed());
+        }
     }
     @Then("Their payment information should no longer be displayed on the page.")
     public void their_payment_information_should_no_longer_be_displayed_on_the_page() {
+         Assert.assertTrue(MainRunner.cartPage.originalcardnumberdisplay.isDisplayed());
 
-        if(MainRunner.cartPage.originalcardnumberdisplay.isDisplayed()){
-            Assert.assertEquals(1,2);
-        }else{
-            Assert.assertEquals(1,1);
-        }
+      }
 
-    }
-
-    //Test 44
     @When("The user types in address fields correctly.")
     public void the_user_types_in_address_fields_correctly() {
         wait.until(ExpectedConditions.urlToBe(MainRunner.cartPage.checkouturlpage));
@@ -141,43 +150,42 @@ public class CartSteps {
     @When("They click place order.")
     public void they_click_place_order() {
         MainRunner.cartPage.placeorderbutton.click();
+
       }
     @Then("An order confirmation should be displayed.")
     public void an_order_confirmation_should_be_displayed() {
-        if(MainRunner.cartPage.thankyoufororderconfirmation.isDisplayed()){
-            Assert.assertEquals(1,1);
-        }else{
-            Assert.assertEquals(1,2);
-        }
+      Assert.assertTrue(MainRunner.cartPage.thankyoufororderconfirmation.isDisplayed());
+
     }
 
     @Then("They should be able to edit their payment information.")
     public void they_should_be_able_to_edit_their_payment_information(){
-        try{
-            MainRunner.cartPage.fakeeditpaymentbutton.click();
-        }catch(Exception e){
-            Assert.assertEquals(1,2);
-
+        Boolean flag = true;
+        try {
+            wait.until(ExpectedConditions.visibilityOf(MainRunner.cartPage.fakeeditpaymentbutton));
+            Assert.assertTrue(flag);
+        } catch(TimeoutException e){
+            flag = false;
         }
+    }
 
-      }
 
-//Test 46
     @When("The user presses the trashcan icon.")
-                public void the_user_presses_the_trashcan_icon(){
+    public void the_user_presses_the_trashcan_icon(){
                 MainRunner.cartPage.trashcanremoveitemquantityicon.click();
     }
 
     @Then("Their item should be deleted from the page.")
     public void their_item_should_be_deleted_from_the_page() {
-        // Write code here that turns the phrase above into concrete actions
-         try{
-             MainRunner.cartPage.headphonenamedisplay.isDisplayed();
-         }catch(Exception e){
-             Assert.assertEquals(1,1);
-            }
-         }
+        Boolean flag = true;
+        try {
+            wait.until(ExpectedConditions.visibilityOf(MainRunner.cartPage.headphonenamedisplay));
+        } catch(TimeoutException e){
+            flag = false;
+            Assert.assertTrue(flag);
+        }
 
+    }
 
     @When("The user clicks the add quantity button.")
     public void the_user_clicks_the_add_quantity_button(){
@@ -193,18 +201,14 @@ public class CartSteps {
     }
     @Then("The quantity should return to its original state.")
     public void the_quantity_should_return_to_its_original_state() {
+        Assert.assertTrue(MainRunner.cartPage.headphonenamedisplay.isDisplayed());
 
-        if(MainRunner.cartPage.headphonequantitydisplay.isDisplayed()){
-            Assert.assertEquals(1,1);
-         }else{
-         }
 
         }
 
         @Then("The cart total should be accurate.")
         public void the_cart_total_should_be_accurate() {
              Assert.assertEquals(MainRunner.cartPage.totalCostofOrderDisplay.getText(),"$20.00");
-
         }
      }
 
