@@ -88,7 +88,6 @@
       When User enters payment information "1234567891011121", "01/01/2050", "123"
       Then user clicks add payment and creates a new payment method
 
-    #Look into using a pass/fail column in order to get rid of duplicate code
     @FailUpdatePayment
     Scenario Outline: User fails to create payment
       When user logs in to edit card info
@@ -101,6 +100,7 @@
         | p8*              | 01/01/2050 | 123 |
         | 1234567891011121 | 01/01/2050 | p8* |
         | 1234567891011121 | 01/01/1950 | 123 |
+
     @DarkLight
     Scenario: User toggles light and dark mode
       When user opens Home page

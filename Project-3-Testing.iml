@@ -138,6 +138,6 @@
     <orderEntry type="library" name="Maven: org.jacoco:org.jacoco.report:0.8.8" level="project" />
     <orderEntry type="library" name="Maven: org.slf4j:slf4j-api:2.0.5" level="project" />
     <orderEntry type="library" scope="TEST" name="Maven: org.slf4j:slf4j-simple:2.0.5" level="project" />
-    <orderEntry type="library" name="Maven: org.jetbrains:annotations:23.0.0" level="project" />
+    <orderEntry type="library" name="Maven: org.jetbrains:annotations:23.1.0" level="project" />
   </component>
 </module>

@@ -12,7 +12,7 @@ import org.testng.annotations.BeforeMethod;
 
 import java.time.Duration;
 
-@CucumberOptions(features = "src/test/resources/features/", glue = "com.revature.steps", tags="@cart")
+@CucumberOptions(features = "src/test/resources/features/", glue = "com.revature.steps", tags="@userorder")
 public class MainRunner extends AbstractTestNGCucumberTests {
     public static WebDriver driver;
     public static WebDriverWait wait;
@@ -26,6 +26,7 @@ public class MainRunner extends AbstractTestNGCucumberTests {
     public static CartPage cartPage;
     public static ProductModel productModel;
     public static CreateProductPage createProductPage;
+    public static OrdersPage ordersPage;
 
     @BeforeMethod
     public void setUp() {
@@ -42,6 +43,7 @@ public class MainRunner extends AbstractTestNGCucumberTests {
         userProfilePage = new UserProfilePage(driver);
         productModel = new ProductModel(driver);
         cartPage = new CartPage(driver);
+        ordersPage = new OrdersPage(driver);
     }
 
     @AfterMethod
