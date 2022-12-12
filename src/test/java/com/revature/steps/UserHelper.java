@@ -5,7 +5,7 @@ import java.util.Random;
 public class UserHelper {
 
     public static String[] createRandomString(int len) {
-        String[] randomString = new String[1];
+        String[] randomString = new String[len];
         for(int i = 0; i < randomString.length; i++) {
             String possibleChars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890";
             StringBuilder randString = new StringBuilder();

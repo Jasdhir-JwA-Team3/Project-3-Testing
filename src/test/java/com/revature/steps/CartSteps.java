@@ -155,7 +155,6 @@ public class CartSteps {
     @Then("An order confirmation should be displayed.")
     public void an_order_confirmation_should_be_displayed() {
       Assert.assertTrue(MainRunner.cartPage.thankyoufororderconfirmation.isDisplayed());
-
     }
 
     @Then("They should be able to edit their payment information.")
@@ -184,7 +183,6 @@ public class CartSteps {
             flag = false;
             Assert.assertTrue(flag);
         }
-
     }
 
     @When("The user clicks the add quantity button.")
@@ -197,20 +195,13 @@ public class CartSteps {
     public void the_user_clicks_the_subtract_quantity_button(){
         MainRunner.cartPage.quantitydecreasebtn.click();
 
-
     }
     @Then("The quantity should return to its original state.")
     public void the_quantity_should_return_to_its_original_state() {
         Assert.assertTrue(MainRunner.cartPage.headphonenamedisplay.isDisplayed());
-
-
+    }
+    @Then("The cart total should be accurate.")
+    public void the_cart_total_should_be_accurate() {
+        Assert.assertEquals(MainRunner.cartPage.totalCostofOrderDisplay.getText(),"$20.00");
         }
-
-        @Then("The cart total should be accurate.")
-        public void the_cart_total_should_be_accurate() {
-             Assert.assertEquals(MainRunner.cartPage.totalCostofOrderDisplay.getText(),"$20.00");
-        }
-     }
-
-
-
+}

@@ -8,6 +8,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.StaleElementReferenceException;
 import org.openqa.selenium.TimeoutException;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
@@ -51,6 +52,7 @@ public class UserSteps {
         MainRunner.loginPage.signinButton.click();
         wait.until(ExpectedConditions.urlToBe("http://localhost:3000/"));
         Assert.assertEquals(MainRunner.driver.getCurrentUrl(), "http://localhost:3000/");
+        
     }
     @Then("user is unable to log in")
     public void user_is_unable_to_log_in() {
@@ -272,6 +274,7 @@ public class UserSteps {
         MainRunner.userProfilePage.expDateInput.sendKeys(expDate);
         MainRunner.userProfilePage.ccvInput.sendKeys(ccv);
         MainRunner.userProfilePage.addPaymentButton.click();
+
     }
     @Then("user clicks add payment and creates a new payment method")
     public void user_clicks_add_payment_and_creates_a_new_payment_method() {
