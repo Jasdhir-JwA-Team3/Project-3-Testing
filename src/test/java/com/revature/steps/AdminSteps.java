@@ -138,4 +138,33 @@ public class AdminSteps {
     public void adminFillsTheImageURL(String image) {
         adminFillsInDescription(image);
     }
+
+    @When("Admin clicks on the first product")
+    public void admin_clicks_on_the_first_product() {
+        MainRunner.adminPage.listOfItemsOnPage = MainRunner.driver.findElements(By
+                .xpath("//div/div[3]/div/button"));
+        MainRunner.adminPage.numOfItems = MainRunner.adminPage.listOfItemsOnPage.size();
+        MainRunner.adminPage.firstItem.click();
+        MainRunner.adminPage.urlOfFirstItem = MainRunner.driver.getCurrentUrl();
+    }
+    @When("admin clicks delete product")
+    public void admin_clicks_delete_product() {
+        WebElement deleteButton =MainRunner.wait.until(ExpectedConditions.visibilityOf(MainRunner.driver.findElement(By
+                .xpath("//div[3]/button[contains(text(),'Delete')]"))));
+        deleteButton.click();
+    }
+    @Then("the product should no longer be available on the page")
+    public void the_product_should_no_longer_be_available_on_the_page() throws InterruptedException {
+        MainRunner.wait.until(ExpectedConditions.urlToBe("http://localhost:3000/admin/products/1"));
+        MainRunner.adminPage.firstItem = MainRunner.driver.findElement(By.xpath("//div/div[3]/div[1]/button"));
+        MainRunner.adminPage.firstItem.click();
+        String currentURL = MainRunner.driver.getCurrentUrl();
+        Assert.assertFalse(currentURL.equals(MainRunner.adminPage.urlOfFirstItem));
+        MainRunner.adminPage.listOfItemsOnPage = MainRunner.driver.findElements(By
+                .xpath("//div/div[3]/div/button"));
+        int currentNumOfItems = MainRunner.adminPage.listOfItemsOnPage.size();
+        Assert.assertFalse(currentNumOfItems == MainRunner.adminPage.numOfItems);
+    }
 }
+
+
