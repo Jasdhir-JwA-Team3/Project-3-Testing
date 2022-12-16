@@ -7920,6 +7920,76 @@
 												"url": "http://localhost:8080/api/payment"
 											},
 											"response": []
+										},
+										{
+											"name": "/api/payment",
+											"event": [
+												{
+													"listen": "test",
+													"script": {
+														"id": "8647b868-dc69-4702-80f9-3941510f63e2",
+														"exec": [
+															"pm.test(\"Correct status code.\", function () {",
+															"    pm.response.to.have.status(200);",
+															"});",
+															"",
+															"pm.test(\"Correct JSON response body.\", function () {",
+															"    pm.expect(pm.response.text()).to.include(\"Payment \" + pm.collectionVariables.get(\"payment_id\") +",
+															"    \" was deleted\");",
+															"});",
+															""
+														],
+														"type": "text/javascript"
+													}
+												}
+											],
+											"id": "eabc6587-ee50-4012-9b60-83e95c583698",
+											"protocolProfileBehavior": {
+												"disableBodyPruning": true
+											},
+											"request": {
+												"method": "DELETE",
+												"header": [
+													{
+														"key": "Authorization",
+														"value": "{{Authorization}}",
+														"type": "text"
+													},
+													{
+														"key": "paymentId",
+														"value": "\"10\"",
+														"type": "text"
+													}
+												],
+												"body": {
+													"mode": "raw",
+													"raw": "",
+													"options": {
+														"raw": {
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "http://localhost:8080/api/payment?paymentId={{payment_id}}",
+													"protocol": "http",
+													"host": [
+														"localhost"
+													],
+													"port": "8080",
+													"path": [
+														"api",
+														"payment"
+													],
+													"query": [
+														{
+															"key": "paymentId",
+															"value": "{{payment_id}}"
+														}
+													]
+												}
+											},
+											"response": []
 										}
 									],
 									"id": "e7c6d1d7-0826-478c-99a7-58dd6c35e997"
@@ -8445,37 +8515,37 @@
 	],
 	"variable": [
 		{
-			"id": "b4b477bd-78f7-4d5f-8da5-bc4ab76cea3e",
+			"id": "b4bc670a-8369-4a86-80bc-dd7e907dbd3e",
 			"key": "productKeyword",
 			"value": "keyword"
 		},
 		{
-			"id": "167c4f3f-2d32-4cc1-9c40-3f37dc8ff2f1",
+			"id": "c00f4f9e-237f-4414-aee9-fc6519899be2",
 			"key": "productID",
 			"value": "id"
 		},
 		{
-			"id": "8c742dd0-22de-436f-b529-b4f1c18da055",
+			"id": "d06f0b46-9138-4053-aac2-bc0a1a4d40e9",
 			"key": "keyword",
 			"value": ""
 		},
 		{
-			"id": "98e1c494-37d8-4fd7-82ab-f8ef8753ac1e",
+			"id": "1850f496-0349-4fb3-9ea0-a8d69a3f2b25",
 			"key": "productPostID",
 			"value": ""
 		},
 		{
-			"id": "a8212f39-2511-4e23-a75b-cc75c15ad4cb",
+			"id": "0b10e1fe-c343-4207-bd11-d3c086e69670",
 			"key": "productUserID",
 			"value": ""
 		},
 		{
-			"id": "9769df19-4c65-4eb5-8a4e-c1912a302a6c",
+			"id": "5f7c0c79-eb66-4317-93b0-bc24b135f804",
 			"key": "productRating",
 			"value": ""
 		},
 		{
-			"id": "2a53b7f5-6b82-40b9-ba03-33ab13653906",
+			"id": "9402ccef-041e-4350-89ad-48da023d7fdc",
 			"key": "payment_id",
 			"value": ""
 		}
