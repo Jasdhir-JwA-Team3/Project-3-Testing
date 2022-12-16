@@ -8371,7 +8371,7 @@
 									"id": "d598e959-3050-4c9b-9ac6-50b6ea015ce1"
 								},
 								{
-									"name": "Check list of orders for user",
+									"name": "Check list of cards for user",
 									"item": [
 										{
 											"name": "(testuser@gmail.com) http://localhost:8080/auth/login (testuser@gmail.com) Copy 3",
@@ -8631,37 +8631,37 @@
 	],
 	"variable": [
 		{
-			"id": "27b8bda1-f65e-4ac5-ae9d-ec55fc164c10",
+			"id": "15079b12-ff96-4873-8c09-a0f1c2e5f987",
 			"key": "productKeyword",
 			"value": "keyword"
 		},
 		{
-			"id": "14b127f4-763d-44d9-8eb5-6db8c8f44dfa",
+			"id": "51c47062-4574-4f50-a854-f4e39d33b98b",
 			"key": "productID",
 			"value": "id"
 		},
 		{
-			"id": "2b4a1376-efcc-4350-a79f-4dcf02432817",
+			"id": "c81d665a-93e2-4040-8e25-4c49957ed373",
 			"key": "keyword",
 			"value": ""
 		},
 		{
-			"id": "31381ba6-7ecd-4f48-b520-52d94eb8bb73",
+			"id": "36b9a909-5b13-4fbe-9e7f-d7396c822527",
 			"key": "productPostID",
 			"value": ""
 		},
 		{
-			"id": "957e9228-8bb0-4cc9-bdfd-343b39473597",
+			"id": "8aa048da-1764-462b-b946-7cc048942390",
 			"key": "productUserID",
 			"value": ""
 		},
 		{
-			"id": "d1eacd8e-142e-4079-8857-8c2ea448c695",
+			"id": "92fd9d47-d78f-4d0e-9cae-dd6576ded838",
 			"key": "productRating",
 			"value": ""
 		},
 		{
-			"id": "0c7de122-12bd-49cd-bcdc-297d900ff132",
+			"id": "df39638f-a1a9-4764-961a-2e82fb51184b",
 			"key": "payment_id",
 			"value": ""
 		}
