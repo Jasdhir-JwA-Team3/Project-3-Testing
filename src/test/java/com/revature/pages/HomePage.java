@@ -30,6 +30,13 @@ public class HomePage {
     @FindBy(xpath = "//input[@type='checkbox']")
     public WebElement modeChanger;
 
+    // SIMULATE DOUBLE CLICK FOR MODE CHANGER
+    public void doubleClickModeChanger() {
+        Actions builder = new Actions(MainRunner.driver);
+        Action doubleClick = builder.doubleClick(modeChanger).build();
+        doubleClick.perform();
+    }
+
     // CHECK PRODUCT
     @FindBy(xpath = "//div[1]/div[3]/div[1]/div[1]")
     public WebElement productExist;

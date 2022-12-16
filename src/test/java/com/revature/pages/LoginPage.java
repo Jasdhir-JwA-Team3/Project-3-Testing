@@ -22,4 +22,7 @@ public class LoginPage {
 
     @FindBy(xpath = "//a[contains(text(),' have an account? Sign Up')]")
     public WebElement signupToRegister;
+
+    @FindBy(xpath = "//a[contains(text(),'Reset your password')]")
+    public WebElement resetPassword;
 }

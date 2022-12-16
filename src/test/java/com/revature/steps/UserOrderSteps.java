@@ -27,7 +27,7 @@ public class UserOrderSteps {
     @Then("User sees information about previous orders they've made")
     public void user_sees_information_about_previous_orders_they_ve_made() {
         MainRunner.wait.until(ExpectedConditions.urlToBe("http://localhost:3000/orders"));
-        Boolean flag = false;
+        boolean flag = false;
         MainRunner.ordersPage.listOfOrders = MainRunner.driver.findElements(By.xpath("//div/div[4]/div"));
         if(MainRunner.ordersPage.listOfOrders.size() > 0) {
             flag = true;
@@ -41,7 +41,7 @@ public class UserOrderSteps {
     }
     @Then("User sees the headphones order")
     public void user_sees_the_headphones_order() {
-        Boolean flag = true;
+        boolean flag = true;
         wait.until(ExpectedConditions.numberOfElementsToBeMoreThan(By.xpath("//div/div[4]/div"),0));
         MainRunner.ordersPage.listOfOrders = MainRunner.driver.findElements(By.xpath("//div/div[4]/div"));
         try{

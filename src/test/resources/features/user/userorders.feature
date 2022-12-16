@@ -14,6 +14,7 @@ Background:
     Given User is on the home page
     When User clicks orders button
     Then User sees information about previous orders they've made
+
   @CreateOrder
   Scenario: User creates order and checks information on Orders page
     When The user clicks the cart icon for headphones.
