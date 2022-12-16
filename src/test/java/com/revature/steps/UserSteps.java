@@ -1,13 +1,14 @@
 package com.revature.steps;
 
 import com.revature.runner.MainRunner;
+import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
-import org.openqa.selenium.By;
-import org.openqa.selenium.StaleElementReferenceException;
-import org.openqa.selenium.TimeoutException;
-import org.openqa.selenium.WebElement;
+import io.github.bonigarcia.wdm.WebDriverManager;
+import org.openqa.selenium.*;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -18,7 +19,7 @@ import java.time.Duration;
 import java.util.Random;
 
 public class UserSteps {
-    WebDriverWait wait = new WebDriverWait(MainRunner.driver, Duration.ofMillis(500));
+    WebDriverWait wait = new WebDriverWait(MainRunner.driver, Duration.ofSeconds(10));
     private static String[] userInfo = new String[2];
     private String saveCardNumber;
     private int numOfPayments;
@@ -57,7 +58,7 @@ public class UserSteps {
     @Then("user is unable to log in")
     public void user_is_unable_to_log_in() {
         MainRunner.loginPage.signinButton.click();
-        Boolean flag = true;
+        boolean flag = true;
         try{
             wait.until(ExpectedConditions.urlToBe("http://localhost:3000/"));
             Assert.assertTrue(flag);
@@ -102,7 +103,7 @@ public class UserSteps {
     }
     @Then("user should be registered and on log in page")
     public void user_should_be_registered_and_on_log_in_page() {
-        Boolean flag = true;
+        boolean flag = true;
         try{
             wait.until(ExpectedConditions.urlToBe("http://localhost:3000/login"));
         }
@@ -126,12 +127,11 @@ public class UserSteps {
 
         String[] signupInfo;
         signupInfo = UserHelper.createRandomString(1);
-        if(email.equals("valid email"))
-            signupInfo[0] += "@email.com";
-        else if(email.equals("invalid email"))
-            signupInfo[0] += "+* .@email.com";
-        else if(email.equals("none"))
-            signupInfo[0] = "";
+        switch (email) {
+            case "valid email" -> signupInfo[0] += "@email.com";
+            case "invalid email" -> signupInfo[0] += "+* .@email.com";
+            case "none" -> signupInfo[0] = "";
+        }
         MainRunner.registerPage.emailInput.sendKeys(signupInfo[0]);
 
         if(password.equals("none"))
@@ -142,7 +142,7 @@ public class UserSteps {
     }
     @Then("user should be not be registered or on log in page")
     public void user_should_be_not_be_registered_or_on_log_in_page() {
-        Boolean flag = false;
+        boolean flag = false;
         try{
             wait.until(ExpectedConditions.urlToBe("http://localhost:3000/login"));
         }
@@ -184,7 +184,7 @@ public class UserSteps {
     @Then("user clicks update and has successfully updates their information")
     public void user_clicks_update_and_has_successfully_updates_their_information() {
         MainRunner.userProfilePage.updateButton.click();
-        Boolean flag = true;
+        boolean flag = true;
         try{
             WebElement popUp = wait.until(ExpectedConditions.visibilityOf(MainRunner.driver.findElement(By
                     .xpath("//div/main[2]/div/form/div/div[4]/div[1]/div/div/div[2]"))));
@@ -212,7 +212,7 @@ public class UserSteps {
     @Then("user clicks update and has fails to update their information")
     public void user_clicks_update_and_has_fails_to_update_their_information() {
         MainRunner.userProfilePage.updateButton.click();
-        Boolean flag = true;
+        boolean flag = true;
         try{
             WebElement popUp = wait.until(ExpectedConditions.visibilityOf(MainRunner.driver.findElement(By
                     .xpath("//div/main[2]/div/form/div/div[4]/div[1]/div/div/div[2]"))));
@@ -246,7 +246,7 @@ public class UserSteps {
     }
     @Then("user should be logged out and not able to log back in")
     public void user_should_be_logged_out_and_not_able_to_log_back_in() {
-        Boolean flag = true;
+        boolean flag = true;
         try {
             wait.until(ExpectedConditions.visibilityOf(MainRunner.homePage.logoutLink));
         }
@@ -278,7 +278,7 @@ public class UserSteps {
     }
     @Then("user clicks add payment and creates a new payment method")
     public void user_clicks_add_payment_and_creates_a_new_payment_method() {
-        Boolean flag = true;
+        boolean flag = true;
         try{
             wait.until(ExpectedConditions.numberOfElementsToBeMoreThan(By.xpath("//table/tbody/tr"), numOfPayments));
             WebElement popUp = MainRunner.driver.findElement(By.xpath(
@@ -295,7 +295,7 @@ public class UserSteps {
     }
     @Then("user clicks add payment and is unable to create a new payment method")
     public void user_clicks_add_payment_and_is_unable_to_create_a_new_payment_method() {
-        Boolean flag = true;
+        boolean flag = true;
         try{
             wait.until(ExpectedConditions.numberOfElementsToBeMoreThan(By.xpath("//table/tbody/tr"), numOfPayments));
             WebElement popUp = MainRunner.driver.findElement(By.xpath(
@@ -316,7 +316,6 @@ public class UserSteps {
         String backgroundColor = MainRunner.driver.findElement(By.xpath("//body")).
                 getCssValue("background-color");
         Assert.assertEquals(backgroundColor, "rgba(255, 255, 255, 1)");
-        Assert.assertTrue(MainRunner.homePage.modeChanger.isSelected());
         MainRunner.homePage.modeChanger.click();
     }
     @When("user clicks to switch to dark mode")
@@ -328,7 +327,6 @@ public class UserSteps {
         String backgroundColor = MainRunner.driver.findElement(By.xpath("//body")).
                 getCssValue("background-color");
         Assert.assertEquals(backgroundColor, "rgba(18, 18, 18, 1)");
-        Assert.assertFalse(MainRunner.homePage.modeChanger.isSelected());
     }
 
     @When("user1 logs in")
@@ -337,8 +335,7 @@ public class UserSteps {
     }
     @When("user1 changes appearance to dark mode")
     public void user1_changes_appearance_to_dark_mode() {
-        MainRunner.homePage.modeChanger.click();
-        MainRunner.homePage.modeChanger.click();
+        MainRunner.homePage.doubleClickModeChanger();
     }
     @When("user logs out")
     public void user_logs_out() {
@@ -359,5 +356,57 @@ public class UserSteps {
         String backgroundColor = MainRunner.driver.findElement(By.xpath("//body")).
                 getCssValue("background-color");
         Assert.assertEquals(backgroundColor, "rgba(255, 255, 255, 1)");
+    }
+
+    // RESET PASSWORD
+    @Given("user created an account")
+    public void user_created_an_account() throws InterruptedException {
+        MainRunner.masterPage.copyEmail();
+        MainRunner.masterPage.getURL("http://localhost:3000/");
+        wait.until(ExpectedConditions.visibilityOf(MainRunner.homePage.registerLink));
+        MainRunner.homePage.registerLink.click();
+        wait.until(ExpectedConditions.urlToBe("http://localhost:3000/register"));
+        MainRunner.registerPage.firstNameinput.sendKeys("Faked");
+        MainRunner.registerPage.lastNameinput.sendKeys("UserBot");
+        MainRunner.registerPage.emailInput.sendKeys(Keys.chord(Keys.CONTROL, "v"));
+        MainRunner.registerPage.passwordInput.sendKeys("FakeBot291@");
+        WebElement signUpButton = MainRunner.driver.findElement(By.xpath("//button[text()='Sign Up']"));
+        signUpButton.click();
+    }
+
+    @And("user clicks forgot password")
+    public void userClicksForgotPassword() {
+        WebElement forgotPassword = wait.until(ExpectedConditions.visibilityOf(MainRunner.loginPage.resetPassword));
+        forgotPassword.click();
+    }
+
+    @When("user resets password")
+    public void userResetsPassword() {
+        wait.until(ExpectedConditions.urlToBe("http://localhost:3000/forgot-password"));
+        MainRunner.passResetPage.insertEmail();
+        MainRunner.passResetPage.clickResetLinkButton();
+    }
+
+    @And("user clicks link in email for {string}")
+    public void userClicksLinkInEmail(String password) throws InterruptedException {
+        MainRunner.masterPage.getEmail();
+        Thread.sleep(Duration.ofSeconds(5).toMillis());
+        WebElement clickRefresh = wait.until(ExpectedConditions.visibilityOf(MainRunner.masterPage.refreshEmail));
+        clickRefresh.click();
+        WebElement clickEmail = wait.until(ExpectedConditions.visibilityOf(MainRunner.masterPage.clickEmail));
+        clickEmail.click();
+        MainRunner.masterPage.getLink();
+        wait.until(ExpectedConditions.visibilityOf(MainRunner.passResetPage.resetPassword));
+        MainRunner.passResetPage.resetPassword.sendKeys(password);
+        WebElement resetPasswordButton = wait.until(ExpectedConditions.visibilityOf(MainRunner.passResetPage.resetButton));
+        resetPasswordButton.click();
+    }
+
+    @Then("user should be able to log in with new password")
+    public void user_should_be_able_to_log_in_with_new_password() {
+        wait.until(ExpectedConditions.urlToBe("http://localhost:3000/login"));
+        MainRunner.registerPage.emailInput.sendKeys(Keys.chord(Keys.CONTROL, "v"));
+        MainRunner.registerPage.passwordInput.sendKeys("FakeBot426@");
+        MainRunner.loginPage.signinButton.click();
     }
 }

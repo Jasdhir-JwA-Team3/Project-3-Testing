@@ -115,3 +115,16 @@
       When user logs out
       When user2 logs in
       Then user2 should have light mode appearance
+
+    @ResetPassword
+    Scenario Outline: Reset Password
+      Given user created an account
+      And user clicks forgot password
+      When user resets password
+      And user clicks link in email for "<new_pass>"
+      Then user should be able to log in with new password
+
+      Examples:
+        | new_pass |
+        | FakeBot291@ |
+        | FakeBot426@ |
