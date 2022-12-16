@@ -8443,32 +8443,32 @@
 	],
 	"variable": [
 		{
-			"id": "f5fde654-5759-4b71-96b3-01df78d2828f",
+			"id": "78de1d54-bbe2-4f66-81e6-9ed612d71b1c",
 			"key": "productKeyword",
 			"value": "keyword"
 		},
 		{
-			"id": "ecf6be12-e9d1-4477-80f2-40034cd9cffc",
+			"id": "dfbb1a8f-27e7-4d66-b059-b661aeb803f6",
 			"key": "productID",
 			"value": "id"
 		},
 		{
-			"id": "ec9f16b0-b772-46e3-aac8-0d28b9377ea4",
+			"id": "b95568ee-1101-40cb-af3f-3cab83a1dc7e",
 			"key": "keyword",
 			"value": ""
 		},
 		{
-			"id": "c9a57e50-8282-45be-bd76-94d55209ffb7",
+			"id": "13e5e9b8-7d0a-4310-9ac0-03a654614f04",
 			"key": "productPostID",
 			"value": ""
 		},
 		{
-			"id": "8f04fd7d-28c1-41e4-8045-f00b32e4181e",
+			"id": "db09567c-4875-4070-84ed-2bc1445e9bf0",
 			"key": "productUserID",
 			"value": ""
 		},
 		{
-			"id": "7882400c-c76a-4ee5-9ca0-9b4b1681f552",
+			"id": "05ddfa17-d52b-46e4-99b3-2910c40c1a67",
 			"key": "productRating",
 			"value": ""
 		}
