@@ -7247,7 +7247,7 @@
 										],
 										"body": {
 											"mode": "raw",
-											"raw": "{\n  \"paymentId\": \"safecard111\",\n  \"shipmentAddress\": \"9999888877776666\"\n}",
+											"raw": "{\n  \"paymentId\": \"3\",\n  \"shipmentAddress\": \"9999888877776666\"\n}",
 											"options": {
 												"raw": {
 													"language": "json"
@@ -8631,37 +8631,37 @@
 	],
 	"variable": [
 		{
-			"id": "b8bee034-7152-43b9-a090-1e54bcf7fa49",
+			"id": "20bac1d6-ab30-4347-aa0b-a52de6b00e03",
 			"key": "productKeyword",
 			"value": "keyword"
 		},
 		{
-			"id": "b9b23d28-7b2c-481d-89f9-ca108073feed",
+			"id": "da80f9c2-6444-4335-9894-ff37b59e73aa",
 			"key": "productID",
 			"value": "id"
 		},
 		{
-			"id": "7dde0285-03d6-454e-a620-bad6f8d9d0b5",
+			"id": "e3a6e08a-bb21-48b2-aef1-0655a6925502",
 			"key": "keyword",
 			"value": ""
 		},
 		{
-			"id": "62d6435e-206e-411c-b0d3-7899e4e72c08",
+			"id": "92357a47-73e3-4c73-b5ee-07c382b7d56d",
 			"key": "productPostID",
 			"value": ""
 		},
 		{
-			"id": "6039457f-d422-4097-a012-977c329f93b7",
+			"id": "111b55b4-4b2d-4ec8-8d8d-f7b47b1bea4b",
 			"key": "productUserID",
 			"value": ""
 		},
 		{
-			"id": "d12bd7e1-6992-4fc4-a7b6-1ee13f901ba9",
+			"id": "23ff9075-293b-471a-bc8e-50c0b9bb1893",
 			"key": "productRating",
 			"value": ""
 		},
 		{
-			"id": "34974a27-e2ea-4d9f-b2a9-fa70abc97d20",
+			"id": "f62b6e41-7073-442a-b204-dde207fb6896",
 			"key": "payment_id",
 			"value": ""
 		}
