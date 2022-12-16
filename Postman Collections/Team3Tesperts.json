@@ -7665,7 +7665,7 @@
 							"name": "PaymentController Tests",
 							"item": [
 								{
-									"name": "User creates valid card",
+									"name": "User creates valid card and delete after",
 									"item": [
 										{
 											"name": "(testuser@gmail.com) http://localhost:8080/auth/login (testuser@gmail.com) Copy 4",
@@ -7756,6 +7756,78 @@
 													}
 												},
 												"url": "http://localhost:8080/api/payment"
+											},
+											"response": []
+										},
+										{
+											"name": "/api/payment",
+											"event": [
+												{
+													"listen": "test",
+													"script": {
+														"id": "8647b868-dc69-4702-80f9-3941510f63e2",
+														"exec": [
+															"pm.test(\"Correct status code.\", function () {",
+															"    pm.response.to.have.status(404);",
+															"});",
+															"",
+															"pm.test(\"Correct JSON response body.\", function () {",
+															"    pm.expect(pm.response.text()).to.include(\"Resource could not be found in the database\");",
+															"});",
+															"",
+															"pm.test(\"Response time is less than 200ms\", function () {",
+															"    pm.expect(pm.response.responseTime).to.be.below(200);",
+															"});"
+														],
+														"type": "text/javascript"
+													}
+												}
+											],
+											"id": "7b3ec26b-6849-473f-be11-fe07409e70b4",
+											"protocolProfileBehavior": {
+												"disableBodyPruning": true
+											},
+											"request": {
+												"method": "DELETE",
+												"header": [
+													{
+														"key": "Authorization",
+														"value": "{{Authorization}}",
+														"type": "text"
+													},
+													{
+														"key": "paymentId",
+														"value": "\"10\"",
+														"type": "text"
+													}
+												],
+												"body": {
+													"mode": "raw",
+													"raw": "",
+													"options": {
+														"raw": {
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "http://localhost:8080/api/payment?paymentId=10",
+													"protocol": "http",
+													"host": [
+														"localhost"
+													],
+													"port": "8080",
+													"path": [
+														"api",
+														"payment"
+													],
+													"query": [
+														{
+															"key": "paymentId",
+															"value": "10"
+														}
+													]
+												}
 											},
 											"response": []
 										}
@@ -8226,180 +8298,109 @@
 								},
 								{
 									"name": "Check list of orders for user",
-									"item": [],
-									"id": "136316bd-0c95-4527-8b87-d6d149e66987"
-								},
-								{
-									"name": "(testuser@gmail.com) http://localhost:8080/auth/login (testuser@gmail.com) Copy 3",
-									"event": [
+									"item": [
 										{
-											"listen": "test",
-											"script": {
-												"id": "d65ba736-d351-4b25-9796-7e32b859411a",
-												"exec": [
-													"\r",
-													"pm.test(\"Status code is 200\", function () {\r",
-													"    pm.globals.set(\"Authorization\", pm.response.headers.get(\"Authorization\"));\r",
-													"    pm.response.to.have.status(200);\r",
-													"});\r",
-													""
-												],
-												"type": "text/javascript"
-											}
-										}
-									],
-									"id": "d8b89bd4-cd3d-4870-9cc4-b0ff99495ee6",
-									"protocolProfileBehavior": {
-										"disableBodyPruning": true
-									},
-									"request": {
-										"method": "POST",
-										"header": [],
-										"body": {
-											"mode": "raw",
-											"raw": "{\r\n    \"email\": \"testuser@gmail.com\",\r\n    \"password\": \"password\"\r\n}",
-											"options": {
-												"raw": {
-													"language": "json"
+											"name": "(testuser@gmail.com) http://localhost:8080/auth/login (testuser@gmail.com) Copy 3",
+											"event": [
+												{
+													"listen": "test",
+													"script": {
+														"id": "d65ba736-d351-4b25-9796-7e32b859411a",
+														"exec": [
+															"\r",
+															"pm.test(\"Status code is 200\", function () {\r",
+															"    pm.globals.set(\"Authorization\", pm.response.headers.get(\"Authorization\"));\r",
+															"    pm.response.to.have.status(200);\r",
+															"});\r",
+															""
+														],
+														"type": "text/javascript"
+													}
 												}
-											}
-										},
-										"url": "http://localhost:8080/auth/login"
-									},
-									"response": []
-								},
-								{
-									"name": "/api/payment",
-									"event": [
-										{
-											"listen": "test",
-											"script": {
-												"id": "8647b868-dc69-4702-80f9-3941510f63e2",
-												"exec": [
-													"pm.test(\"Correct status code.\", function () {",
-													"    pm.response.to.have.status(404);",
-													"});",
-													"",
-													"pm.test(\"Correct JSON response body.\", function () {",
-													"    pm.expect(pm.response.text()).to.include(\"Resource could not be found in the database\");",
-													"});",
-													"",
-													"pm.test(\"Response time is less than 200ms\", function () {",
-													"    pm.expect(pm.response.responseTime).to.be.below(200);",
-													"});"
-												],
-												"type": "text/javascript"
-											}
-										}
-									],
-									"id": "7b3ec26b-6849-473f-be11-fe07409e70b4",
-									"protocolProfileBehavior": {
-										"disableBodyPruning": true
-									},
-									"request": {
-										"method": "DELETE",
-										"header": [
-											{
-												"key": "Authorization",
-												"value": "{{Authorization}}",
-												"type": "text"
+											],
+											"id": "d8b89bd4-cd3d-4870-9cc4-b0ff99495ee6",
+											"protocolProfileBehavior": {
+												"disableBodyPruning": true
 											},
-											{
-												"key": "paymentId",
-												"value": "\"10\"",
-												"type": "text"
-											}
-										],
-										"body": {
-											"mode": "raw",
-											"raw": "",
-											"options": {
-												"raw": {
-													"language": "json"
-												}
-											}
+											"request": {
+												"method": "POST",
+												"header": [],
+												"body": {
+													"mode": "raw",
+													"raw": "{\r\n    \"email\": \"testuser@gmail.com\",\r\n    \"password\": \"password\"\r\n}",
+													"options": {
+														"raw": {
+															"language": "json"
+														}
+													}
+												},
+												"url": "http://localhost:8080/auth/login"
+											},
+											"response": []
 										},
-										"url": {
-											"raw": "http://localhost:8080/api/payment?paymentId=10",
-											"protocol": "http",
-											"host": [
-												"localhost"
-											],
-											"port": "8080",
-											"path": [
-												"api",
-												"payment"
-											],
-											"query": [
-												{
-													"key": "paymentId",
-													"value": "10"
-												}
-											]
-										}
-									},
-									"response": []
-								},
-								{
-									"name": "/api/payment",
-									"event": [
 										{
-											"listen": "test",
-											"script": {
-												"id": "b8b0c2b8-3bf3-48ff-af1d-d84e88fb6b91",
-												"exec": [
-													"pm.test(\"Status code is correct.\", function () {",
-													"    pm.response.to.have.status(200);",
-													"});",
-													"",
-													"pm.test(\"Response body is correct.\", function () {",
-													"    pm.expect(pm.response.text()).to.include(\"safecard111\");",
-													"});",
-													"",
-													"pm.test(\"Cvv correct.\", function () {",
-													"    var jsonData = pm.response.json();",
-													"    pm.expect(jsonData[0].ccv).to.eql(\"123\");",
-													"});"
+											"name": "/api/payment",
+											"event": [
+												{
+													"listen": "test",
+													"script": {
+														"id": "b8b0c2b8-3bf3-48ff-af1d-d84e88fb6b91",
+														"exec": [
+															"pm.test(\"Status code is correct.\", function () {",
+															"    pm.response.to.have.status(200);",
+															"});",
+															"",
+															"pm.test(\"Response body is correct.\", function () {",
+															"    pm.expect(pm.response.text()).to.include(\"safecard111\");",
+															"});",
+															"",
+															"pm.test(\"Cvv correct.\", function () {",
+															"    var jsonData = pm.response.json();",
+															"    pm.expect(jsonData[0].ccv).to.eql(\"123\");",
+															"});"
+														],
+														"type": "text/javascript"
+													}
+												}
+											],
+											"id": "b24ee003-6d34-4fdc-9148-72f00635ac56",
+											"protocolProfileBehavior": {
+												"disableBodyPruning": true
+											},
+											"request": {
+												"method": "GET",
+												"header": [
+													{
+														"key": "Authorization",
+														"value": "{{Authorization}}",
+														"type": "text"
+													}
 												],
-												"type": "text/javascript"
-											}
+												"url": {
+													"raw": "http://localhost:8080/api/payment",
+													"protocol": "http",
+													"host": [
+														"localhost"
+													],
+													"port": "8080",
+													"path": [
+														"api",
+														"payment"
+													],
+													"query": [
+														{
+															"key": "",
+															"value": null,
+															"type": "text",
+															"disabled": true
+														}
+													]
+												}
+											},
+											"response": []
 										}
 									],
-									"id": "b24ee003-6d34-4fdc-9148-72f00635ac56",
-									"protocolProfileBehavior": {
-										"disableBodyPruning": true
-									},
-									"request": {
-										"method": "GET",
-										"header": [
-											{
-												"key": "Authorization",
-												"value": "{{Authorization}}",
-												"type": "text"
-											}
-										],
-										"url": {
-											"raw": "http://localhost:8080/api/payment",
-											"protocol": "http",
-											"host": [
-												"localhost"
-											],
-											"port": "8080",
-											"path": [
-												"api",
-												"payment"
-											],
-											"query": [
-												{
-													"key": "",
-													"value": null,
-													"type": "text",
-													"disabled": true
-												}
-											]
-										}
-									},
-									"response": []
+									"id": "136316bd-0c95-4527-8b87-d6d149e66987"
 								}
 							],
 							"id": "771e81c1-063e-4c66-b37b-d1a6eecce54d"
@@ -8442,32 +8443,32 @@
 	],
 	"variable": [
 		{
-			"id": "4c52cc57-b805-46b3-b003-8161d9cb0603",
+			"id": "6af92c56-d59a-4e8d-81ae-5ebe8fc04e07",
 			"key": "productKeyword",
 			"value": "keyword"
 		},
 		{
-			"id": "194d1ceb-044f-466b-ac41-4d2d0b580efd",
+			"id": "6d56527c-16ce-4a42-b895-9fc99a5594f8",
 			"key": "productID",
 			"value": "id"
 		},
 		{
-			"id": "33c97ac7-0814-4b4e-85d3-34a1b396c1ff",
+			"id": "a698350b-2182-4655-ac16-011092a0ec51",
 			"key": "keyword",
 			"value": ""
 		},
 		{
-			"id": "2168acd0-716c-4ab1-85f6-42c15032515d",
+			"id": "a2820691-6845-4498-a47d-bd6c5c32dbdb",
 			"key": "productPostID",
 			"value": ""
 		},
 		{
-			"id": "cb25872b-7341-4bcc-abff-d3029bdc71ab",
+			"id": "fe63908a-e967-4a7b-afd5-5c781ae1287b",
 			"key": "productUserID",
 			"value": ""
 		},
 		{
-			"id": "a6ec3eaa-9b26-4b7f-9de5-adfe3e8b826e",
+			"id": "a0c599cf-f89e-4b42-9186-f39a032f2eee",
 			"key": "productRating",
 			"value": ""
 		}
