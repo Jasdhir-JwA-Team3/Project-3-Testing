@@ -7720,7 +7720,7 @@
 															"",
 															"pm.test(\"Correct ccv\", function () {",
 															"    var jsonData = pm.response.json();",
-															"    pm.expect(jsonData.ccv).to.eql(\"string\");",
+															"    pm.expect(jsonData.ccv).to.eql(\"123\");",
 															"});",
 															"",
 															"pm.test(\"Correct userEmail\", function () {",
@@ -8443,32 +8443,32 @@
 	],
 	"variable": [
 		{
-			"id": "6f1c4c4b-781d-40df-a487-ec7149552172",
+			"id": "f5fde654-5759-4b71-96b3-01df78d2828f",
 			"key": "productKeyword",
 			"value": "keyword"
 		},
 		{
-			"id": "9a1a87f9-14bf-4462-a337-874a3754a7d1",
+			"id": "ecf6be12-e9d1-4477-80f2-40034cd9cffc",
 			"key": "productID",
 			"value": "id"
 		},
 		{
-			"id": "c327fac1-0911-4f91-bd94-938ecc383218",
+			"id": "ec9f16b0-b772-46e3-aac8-0d28b9377ea4",
 			"key": "keyword",
 			"value": ""
 		},
 		{
-			"id": "2667010e-623d-4c7a-a14c-5a5722a27e83",
+			"id": "c9a57e50-8282-45be-bd76-94d55209ffb7",
 			"key": "productPostID",
 			"value": ""
 		},
 		{
-			"id": "afc98d2c-b9c6-499e-9016-d0d532abcf85",
+			"id": "8f04fd7d-28c1-41e4-8045-f00b32e4181e",
 			"key": "productUserID",
 			"value": ""
 		},
 		{
-			"id": "d6fcda8b-9454-4255-a9ab-ecec1b6f0dad",
+			"id": "7882400c-c76a-4ee5-9ca0-9b4b1681f552",
 			"key": "productRating",
 			"value": ""
 		}
