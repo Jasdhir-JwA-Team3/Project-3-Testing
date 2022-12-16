@@ -8225,7 +8225,7 @@
 									"id": "d598e959-3050-4c9b-9ac6-50b6ea015ce1"
 								},
 								{
-									"name": "New Folder",
+									"name": "Check list of orders for user",
 									"item": [],
 									"id": "136316bd-0c95-4527-8b87-d6d149e66987"
 								},
@@ -8442,32 +8442,32 @@
 	],
 	"variable": [
 		{
-			"id": "469715d2-0038-4598-9d77-5f4df0cf3cb0",
+			"id": "214a782d-ba60-44e9-ab9b-117d504ccdc4",
 			"key": "productKeyword",
 			"value": "keyword"
 		},
 		{
-			"id": "2025229e-ae47-431d-943f-5f3e29fafdda",
+			"id": "aaa1ee44-ba1e-4f37-bf67-48dba07de052",
 			"key": "productID",
 			"value": "id"
 		},
 		{
-			"id": "fea6fee4-7d76-4884-9878-adcc1d52a815",
+			"id": "968a8603-a38b-4387-8bab-a16c36002182",
 			"key": "keyword",
 			"value": ""
 		},
 		{
-			"id": "873f90ee-d6f0-4053-8cf6-23e550d39be7",
+			"id": "08a1f151-e36d-4997-a7da-dd3d1f42280b",
 			"key": "productPostID",
 			"value": ""
 		},
 		{
-			"id": "ffec4ee8-c069-417e-8c91-ed3b5a3ba177",
+			"id": "858a9036-51f8-497e-b1a2-a43ae091e94b",
 			"key": "productUserID",
 			"value": ""
 		},
 		{
-			"id": "eafec12f-e702-41c0-813e-f70318cf2fc5",
+			"id": "c848873f-da63-41bf-9bec-400efc538795",
 			"key": "productRating",
 			"value": ""
 		}
