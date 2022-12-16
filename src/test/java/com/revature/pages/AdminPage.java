@@ -9,6 +9,8 @@ import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
+import java.util.List;
+
 public class AdminPage {
 
     public AdminPage(WebDriver driver) {
@@ -33,4 +35,13 @@ public class AdminPage {
     public WebElement priceH4;
     @FindBy(xpath = "//h5")
     public WebElement descriptionH5;
+
+    @FindBy(xpath = "//div/div[3]/div[1]/button")
+    public WebElement firstItem;
+
+    public String urlOfFirstItem;
+
+    public List<WebElement> listOfItemsOnPage;
+
+    public int numOfItems;
 }

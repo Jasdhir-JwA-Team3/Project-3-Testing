@@ -69,3 +69,11 @@ Examples:
   |Product Two  |Product Two Desc    |                                                                  |13   |imageURL    |
   |Product Three|Product Three Desc  |https://cdn.pixabay.com/photo/2014/11/30/14/11/cat-551554__340.jpg|     |price       |
   |             |                    |                                                                  |     |            |
+
+  @DeleteProduct
+  Scenario: Admin deletes a product
+    Given Admin is on the home page
+    When Admin clicks edit products
+    And Admin clicks on the first product
+    When admin clicks delete product
+    Then the product should no longer be available on the page
