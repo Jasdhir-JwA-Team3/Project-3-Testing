@@ -7716,10 +7716,11 @@
 														"exec": [
 															"pm.test(\"Correct status code.\", function () {",
 															"    pm.response.to.have.status(200);",
+															"     var jsonData = pm.response.json();",
+															"    pm.",
 															"});",
 															"",
 															"pm.test(\"Correct ccv\", function () {",
-															"    var jsonData = pm.response.json();",
 															"    pm.expect(jsonData.ccv).to.eql(\"123\");",
 															"});",
 															"",
@@ -7727,6 +7728,7 @@
 															"    var jsonData = pm.response.json();",
 															"    pm.expect(jsonData.userEmail).to.eql(\"testuser@gmail.com\");",
 															"});",
+															"",
 															""
 														],
 														"type": "text/javascript"
@@ -8443,32 +8445,32 @@
 	],
 	"variable": [
 		{
-			"id": "78de1d54-bbe2-4f66-81e6-9ed612d71b1c",
+			"id": "86c00f10-9b3a-4cab-8eb2-486ce35e6489",
 			"key": "productKeyword",
 			"value": "keyword"
 		},
 		{
-			"id": "dfbb1a8f-27e7-4d66-b059-b661aeb803f6",
+			"id": "9f79f117-18c5-4468-9330-c3d6e732672e",
 			"key": "productID",
 			"value": "id"
 		},
 		{
-			"id": "b95568ee-1101-40cb-af3f-3cab83a1dc7e",
+			"id": "4f86cb2c-e0d3-4373-adae-5dec740169e9",
 			"key": "keyword",
 			"value": ""
 		},
 		{
-			"id": "13e5e9b8-7d0a-4310-9ac0-03a654614f04",
+			"id": "5ebde81d-4ca1-4a2b-84d5-5bc3538c52f7",
 			"key": "productPostID",
 			"value": ""
 		},
 		{
-			"id": "db09567c-4875-4070-84ed-2bc1445e9bf0",
+			"id": "79947df8-5cbb-415f-a8dc-387d4fcffbac",
 			"key": "productUserID",
 			"value": ""
 		},
 		{
-			"id": "05ddfa17-d52b-46e4-99b3-2910c40c1a67",
+			"id": "45d2fc94-9245-4562-818d-070773836bd5",
 			"key": "productRating",
 			"value": ""
 		}
