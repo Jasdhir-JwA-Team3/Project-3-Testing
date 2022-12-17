@@ -7615,6 +7615,56 @@
 												"url": "http://localhost:8080/api/orderdetail/{{order-detail_id}}"
 											},
 											"response": []
+										},
+										{
+											"name": "check if detail was deleted",
+											"event": [
+												{
+													"listen": "test",
+													"script": {
+														"id": "83ebe83a-42dc-4586-90ac-38e22e89ac3b",
+														"exec": [
+															"pm.test(\"Status code is correct.\", function () {",
+															"    pm.response.to.have.status(200);",
+															"});",
+															"",
+															"pm.test(\"firstname is correct.\", function () {",
+															"    pm.expect(pm.response.text()).to.include(\"Testerson\");",
+															"});",
+															"",
+															"pm.test(\"lastname is correct.\", function () {",
+															"    pm.expect(pm.response.text()).to.include(\"Usertown\");",
+															"});"
+														],
+														"type": "text/javascript"
+													}
+												}
+											],
+											"id": "1df6d9ae-fc98-443f-a877-30782b11277a",
+											"protocolProfileBehavior": {
+												"disableBodyPruning": true
+											},
+											"request": {
+												"method": "GET",
+												"header": [
+													{
+														"key": "Authorization",
+														"value": "{{Authorization}}",
+														"type": "text"
+													}
+												],
+												"body": {
+													"mode": "raw",
+													"raw": "",
+													"options": {
+														"raw": {
+															"language": "json"
+														}
+													}
+												},
+												"url": "http://localhost:8080/api/orderdetail/{{order-detail_id}}"
+											},
+											"response": []
 										}
 									],
 									"id": "432d0922-93be-49fc-b807-24044b3ccd52"
@@ -8764,42 +8814,42 @@
 	],
 	"variable": [
 		{
-			"id": "2ecd2c08-0323-43bc-a162-8cd85d3d6dcc",
+			"id": "1c092dcf-07b9-4921-8e63-e7e0f3bd77dd",
 			"key": "productKeyword",
 			"value": "keyword"
 		},
 		{
-			"id": "4e2b9842-46ed-4831-97e6-6b2b7f61c6c6",
+			"id": "6265fed8-4839-4416-ab31-42b60f6f4e3c",
 			"key": "productID",
 			"value": "id"
 		},
 		{
-			"id": "afd8b1c7-b2b8-4b26-89bc-709ffb16c164",
+			"id": "64f05447-07cf-4308-bb83-01ae9127dc1d",
 			"key": "keyword",
 			"value": ""
 		},
 		{
-			"id": "7f22ed54-28ab-4c52-a5a1-cb97a939a91f",
+			"id": "bd3004fa-da66-44a0-bb52-51216b7f9a36",
 			"key": "productPostID",
 			"value": ""
 		},
 		{
-			"id": "03bf36e7-1fa1-4106-92e7-25b6a6d69b1d",
+			"id": "39c98a78-3ed4-42a8-80c6-dfad3b217728",
 			"key": "productUserID",
 			"value": ""
 		},
 		{
-			"id": "906d3494-cc6f-488d-a080-e955c17fc34c",
+			"id": "387add5e-db89-4631-99f6-8aea0ad7bb27",
 			"key": "productRating",
 			"value": ""
 		},
 		{
-			"id": "608f1a39-4ba1-4da7-a02a-968195bdc78b",
+			"id": "6d10fed0-cb1e-4a7b-948b-bd583bddf6f2",
 			"key": "payment_id",
 			"value": ""
 		},
 		{
-			"id": "d5f858ef-5cc8-48c8-868b-0fc2c5a5931b",
+			"id": "dcb53bc6-1b1e-445a-848f-e335b3bc56ab",
 			"key": "order-detail_id",
 			"value": ""
 		}
