@@ -7469,67 +7469,6 @@
 												"url": "http://localhost:8080/api/order"
 											},
 											"response": []
-										},
-										{
-											"name": "get order history for logged in user",
-											"event": [
-												{
-													"listen": "test",
-													"script": {
-														"id": "8d3dd7bd-16ed-4896-8679-a78b5ba0a94c",
-														"exec": [
-															"pm.test(\"Status code is correct.\", function () {",
-															"    pm.response.to.have.status(200);",
-															"});",
-															"",
-															"pm.test(\"User email correct.\", function () {",
-															"    pm.expect(pm.response.text()).to.include(\"testuser@gmail.com\");",
-															"});",
-															"",
-															"pm.test(\"paymentID correct.\", function () {",
-															"    var jsonData = pm.response.json();",
-															"    pm.expect(jsonData[0].paymentId).to.eql(\"3\");",
-															"});",
-															""
-														],
-														"type": "text/javascript"
-													}
-												}
-											],
-											"id": "4a241668-0c1e-4bcd-b248-f90fc2a0e125",
-											"protocolProfileBehavior": {
-												"disableBodyPruning": true
-											},
-											"request": {
-												"method": "GET",
-												"header": [
-													{
-														"key": "Authorization",
-														"value": "{{Authorization}}",
-														"type": "text"
-													}
-												],
-												"url": {
-													"raw": "http://localhost:8080/api/order/history?",
-													"protocol": "http",
-													"host": [
-														"localhost"
-													],
-													"port": "8080",
-													"path": [
-														"api",
-														"order",
-														"history"
-													],
-													"query": [
-														{
-															"key": "",
-															"value": null
-														}
-													]
-												}
-											},
-											"response": []
 										}
 									],
 									"id": "238c8f05-5785-4f71-acae-443028c65233"
@@ -9368,47 +9307,47 @@
 	],
 	"variable": [
 		{
-			"id": "ede32485-5aef-4f80-b181-c9d64b297f4b",
+			"id": "a6c8189a-a13a-481b-950b-bc98f2912f44",
 			"key": "productKeyword",
 			"value": "keyword"
 		},
 		{
-			"id": "6c47ae6e-6db8-4bed-a568-4a1254577245",
+			"id": "975fa73a-a461-4ae5-aa60-d5109049e876",
 			"key": "productID",
 			"value": "id"
 		},
 		{
-			"id": "dd6838d2-389d-49a0-8110-f9e5d6d90fe4",
+			"id": "644f87c3-df97-45c3-a129-b04714296b5c",
 			"key": "keyword",
 			"value": ""
 		},
 		{
-			"id": "538e3747-ce6d-4b76-9a08-8399def2271c",
+			"id": "34df729e-d539-4722-9851-93e58e3f4761",
 			"key": "productPostID",
 			"value": ""
 		},
 		{
-			"id": "28f7f66e-0e45-43f4-83ea-9c96c903b9a1",
+			"id": "4e216b57-f47b-4efa-8bb0-b4457e3ffd87",
 			"key": "productUserID",
 			"value": ""
 		},
 		{
-			"id": "200a8846-e238-4333-81c6-b9043eb40dd7",
+			"id": "c2f4d2c2-4dea-4c36-863d-ff6b42d24936",
 			"key": "productRating",
 			"value": ""
 		},
 		{
-			"id": "9ac5e233-0b97-46fa-b11e-6ced958f918a",
+			"id": "9a37c0ba-8bf1-49c2-ad08-86f6defcda9e",
 			"key": "payment_id",
 			"value": ""
 		},
 		{
-			"id": "68ce1888-a0e7-497c-86e9-6e2bdb6a5bf1",
+			"id": "bc7334da-0ee0-4ed3-bb56-80c8f709aef2",
 			"key": "order-detail_id",
 			"value": ""
 		},
 		{
-			"id": "f2487506-6f99-4777-86b3-620ab94fc14e",
+			"id": "eb346f21-d9ec-45a2-a467-8cb7c8429ed0",
 			"key": "new-order-id",
 			"value": ""
 		}
