@@ -7164,7 +7164,7 @@
 							"name": "OrderController Tests",
 							"item": [
 								{
-									"name": "New Folder",
+									"name": "Create new order and check it was created",
 									"item": [],
 									"id": "a35a4956-f64f-45a6-8138-2dfbc12a4e1c"
 								},
@@ -9168,42 +9168,42 @@
 	],
 	"variable": [
 		{
-			"id": "8f6306d4-b235-495b-9b51-96bab1de927d",
+			"id": "2dc90d4c-44ab-46c0-970c-3484eb782e7c",
 			"key": "productKeyword",
 			"value": "keyword"
 		},
 		{
-			"id": "8ddfde63-67b5-4bb1-802e-1eadbff18f4c",
+			"id": "e6f1166e-64b3-4c23-b139-4904cab2e18e",
 			"key": "productID",
 			"value": "id"
 		},
 		{
-			"id": "b00227c5-f2ef-4033-8c93-a932c3b693de",
+			"id": "4c523f42-c3a2-4b07-b598-eb0617aeb0ea",
 			"key": "keyword",
 			"value": ""
 		},
 		{
-			"id": "315783b0-c07a-4c53-86f8-eddd03d530f6",
+			"id": "f799afea-e30d-4f2f-8319-0bc4215feafa",
 			"key": "productPostID",
 			"value": ""
 		},
 		{
-			"id": "93bceaa0-cded-4d2d-81de-6fc4ffebf33d",
+			"id": "0c3f332a-4484-44b6-936c-35509f3b7b01",
 			"key": "productUserID",
 			"value": ""
 		},
 		{
-			"id": "faa2a186-69f2-4ffa-adb7-3cf7c662c26f",
+			"id": "5dbd8a28-dbcc-4f1e-a21f-691a9d2b17f8",
 			"key": "productRating",
 			"value": ""
 		},
 		{
-			"id": "92622ba6-e3bd-4b9d-a612-c89f06d6b513",
+			"id": "ce8f718c-7ca5-4139-b7c2-3ad03681e77e",
 			"key": "payment_id",
 			"value": ""
 		},
 		{
-			"id": "b5b5af33-1de2-4d0e-933f-ab80ddd39aab",
+			"id": "f3e91d18-1946-42b1-8ad2-f63c13203c32",
 			"key": "order-detail_id",
 			"value": ""
 		}
