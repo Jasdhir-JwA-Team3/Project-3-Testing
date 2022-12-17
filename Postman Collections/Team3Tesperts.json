@@ -7144,7 +7144,7 @@
 														}
 													}
 												},
-												"url": ")http://localhost:8080/api/product"
+												"url": "http://localhost:8080/api/product"
 											},
 											"response": []
 										}
@@ -9391,47 +9391,47 @@
 	],
 	"variable": [
 		{
-			"id": "2ee32553-6df4-4832-a278-a0e6b9eab9fe",
+			"id": "027074d8-d1cc-44af-a869-1acad6398b1a",
 			"key": "productKeyword",
 			"value": "keyword"
 		},
 		{
-			"id": "be8fa558-e85c-4c33-ba0a-1e2af01bb3e3",
+			"id": "ffd1b597-7286-4d6b-96bc-7a48487a9b27",
 			"key": "productID",
 			"value": "id"
 		},
 		{
-			"id": "6fec2310-7700-48af-b62c-e8b3ece51ce0",
+			"id": "de8db5e4-cac7-49c2-87c9-e007632bea01",
 			"key": "keyword",
 			"value": ""
 		},
 		{
-			"id": "a7a74763-8d5e-47ce-ba04-dfb830f4d6e9",
+			"id": "6e57cce9-aa40-40cd-a538-fb45505c0115",
 			"key": "productPostID",
 			"value": ""
 		},
 		{
-			"id": "731a068c-7058-409a-829f-cd7b405a61a5",
+			"id": "4539f63d-b03f-440b-a71a-c5eccd17f456",
 			"key": "productUserID",
 			"value": ""
 		},
 		{
-			"id": "f7a35320-7de0-4912-aa79-00c12f3c3219",
+			"id": "6a842998-5450-44ea-bcd6-dd1dee7b4cdc",
 			"key": "productRating",
 			"value": ""
 		},
 		{
-			"id": "8fe4a038-abfd-4634-aef8-049433324f38",
+			"id": "1a173075-4621-434d-9540-3dfd87fdc303",
 			"key": "payment_id",
 			"value": ""
 		},
 		{
-			"id": "ea694953-69b9-4ced-b30b-e0eed38ee25e",
+			"id": "090bfd06-436f-47d8-a29d-d3bfb92d5cfb",
 			"key": "order-detail_id",
 			"value": ""
 		},
 		{
-			"id": "7b1ef11e-8765-4b65-8e39-9dd0aedf49bb",
+			"id": "8bd3f302-84e2-44b3-81d4-7258863ddd0f",
 			"key": "new-order-id",
 			"value": ""
 		}
