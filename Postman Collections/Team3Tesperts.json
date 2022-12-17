@@ -7979,7 +7979,7 @@
 															"pm.test(\"Status code correct.\", function () {",
 															"    var jsonData = pm.response.json();",
 															"    pm.collectionVariables.set(\"order-detail_id\",jsonData.id);",
-															"    pm.response.to.have.status(404);",
+															"    pm.response.to.have.status(400);",
 															"});",
 															"",
 															"",
@@ -8001,7 +8001,7 @@
 												"header": [],
 												"body": {
 													"mode": "raw",
-													"raw": "{\n  \"productId\": 1,\n  \"orderId\": 1,\n  \"quantity\": -1\n}",
+													"raw": "{\n  \"productId\": 1,\n  \"orderId\": 1,\n  \"quantity\": \"p\"\n}",
 													"options": {
 														"raw": {
 															"language": "json"
@@ -9118,42 +9118,42 @@
 	],
 	"variable": [
 		{
-			"id": "ff2f900c-edff-489b-83c2-e2f6c70d8798",
+			"id": "0691eb6c-238c-4b85-9154-a30b6d225640",
 			"key": "productKeyword",
 			"value": "keyword"
 		},
 		{
-			"id": "eefaa6c0-4487-4b67-85ed-17f1d9aeb84e",
+			"id": "810e3c86-8170-4ab3-bb39-a87a3d63f562",
 			"key": "productID",
 			"value": "id"
 		},
 		{
-			"id": "9f10faf0-e5d4-4ff1-9609-0697aa3e131a",
+			"id": "0cb4f405-784f-48ac-93b0-39813bb7edd8",
 			"key": "keyword",
 			"value": ""
 		},
 		{
-			"id": "e98619a3-a381-4044-8d6f-6bca7b87694e",
+			"id": "fbbf211f-b535-4a4b-90fb-223b497aae1b",
 			"key": "productPostID",
 			"value": ""
 		},
 		{
-			"id": "5c6ec06f-326d-48ab-a2cc-e3c41e090373",
+			"id": "8d19c8e6-0650-4413-a29e-233252c96cd2",
 			"key": "productUserID",
 			"value": ""
 		},
 		{
-			"id": "0d4a68f7-a485-4fdb-b917-ed421a43caa0",
+			"id": "d02f1176-10b1-46b0-a487-04fe9ff80abf",
 			"key": "productRating",
 			"value": ""
 		},
 		{
-			"id": "d431d5df-1f43-49ce-a21f-5ed6ec978635",
+			"id": "98330611-6022-4214-a341-a27790798877",
 			"key": "payment_id",
 			"value": ""
 		},
 		{
-			"id": "387d4165-0ee0-4c6f-b7c7-5f6583b65f6c",
+			"id": "3619054b-b848-4a5d-a4cc-a2a9e1637485",
 			"key": "order-detail_id",
 			"value": ""
 		}
