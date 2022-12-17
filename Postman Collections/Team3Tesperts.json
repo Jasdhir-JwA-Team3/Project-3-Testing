@@ -7867,17 +7867,9 @@
 														"id": "83ebe83a-42dc-4586-90ac-38e22e89ac3b",
 														"exec": [
 															"pm.test(\"Status code is correct.\", function () {",
-															"    pm.response.to.have.status(200);",
+															"    pm.response.to.have.status(404);",
 															"});",
-															"",
-															"pm.test(\"firstname is correct.\", function () {",
-															"    pm.expect(pm.response.text()).to.include(\"Testerson\");",
-															"});",
-															"",
-															"pm.test(\"lastname is correct.\", function () {",
-															"    pm.expect(pm.response.text()).to.include(\"Usertown\");",
-															"    pm.collectionVariables.set(\"order-detail_id\",);",
-															"});"
+															""
 														],
 														"type": "text/javascript"
 													}
@@ -8926,42 +8918,42 @@
 	],
 	"variable": [
 		{
-			"id": "1e286086-60dc-40cb-bf35-25e14cd4083e",
+			"id": "7f0d8d38-9665-4077-8396-ba54fd3c43b4",
 			"key": "productKeyword",
 			"value": "keyword"
 		},
 		{
-			"id": "5c232f8a-4e8d-405b-934d-adc7eb32a4d4",
+			"id": "7932db0d-b251-4cb5-9278-55f17b05222e",
 			"key": "productID",
 			"value": "id"
 		},
 		{
-			"id": "b6c2ba48-9d6b-4a61-ab4c-b7968ddd8061",
+			"id": "af44d1eb-3ed9-4579-92cf-8245ca95e1a9",
 			"key": "keyword",
 			"value": ""
 		},
 		{
-			"id": "dd63256f-cc47-4bfc-8782-55d33a5b6f64",
+			"id": "09b3e407-faf2-4c38-ad3a-b9e66733e192",
 			"key": "productPostID",
 			"value": ""
 		},
 		{
-			"id": "41220f2b-ed33-44fb-b9b4-a34b5a320708",
+			"id": "54368bf5-1e4b-4f8f-b132-299facd82fec",
 			"key": "productUserID",
 			"value": ""
 		},
 		{
-			"id": "9612dad4-cc91-4386-9289-985c9e56d396",
+			"id": "e5dc314a-1a3e-4730-ab1e-590224b3a84d",
 			"key": "productRating",
 			"value": ""
 		},
 		{
-			"id": "4990df8f-a189-4a3d-82cc-3672abb1bb33",
+			"id": "add06190-ec47-4c45-9734-c48a57249ffb",
 			"key": "payment_id",
 			"value": ""
 		},
 		{
-			"id": "a8c637e3-7a31-491e-be2b-57548009b424",
+			"id": "bc36fe63-77bf-4c1c-a816-feeb4c102883",
 			"key": "order-detail_id",
 			"value": ""
 		}
