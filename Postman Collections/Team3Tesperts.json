@@ -7617,14 +7617,7 @@
 															"pm.test(\"Status code correct\", function () {",
 															"    pm.response.to.have.status(200);",
 															"});",
-															"",
-															"  pm.test(\"PaymentID correct.\", function () {",
-															"      pm.expect(pm.response.text()).to.contain(\"safecard111\");",
-															" });",
-															"",
-															"   pm.test(\"Date correct on card.\", function () {",
-															"      pm.expect(pm.response.text()).to.contain(\"2022-12-05\");",
-															" });"
+															""
 														],
 														"type": "text/javascript"
 													}
@@ -9398,47 +9391,47 @@
 	],
 	"variable": [
 		{
-			"id": "226a6b70-ad6c-4f68-b48c-3a21bdb54bb0",
+			"id": "2638dd9c-4205-4e28-b631-97e1a34da23b",
 			"key": "productKeyword",
 			"value": "keyword"
 		},
 		{
-			"id": "b9a7241d-5d88-4b17-ad6a-29ca693cde98",
+			"id": "96ed0ea7-c1a2-4a13-a2dd-6d7cf28c18e4",
 			"key": "productID",
 			"value": "id"
 		},
 		{
-			"id": "03a6d684-531b-411c-b3c7-3a8b9cde89fb",
+			"id": "d504b19f-f835-4588-bc29-8705ceb30fa0",
 			"key": "keyword",
 			"value": ""
 		},
 		{
-			"id": "0ea9f2bd-3465-4f44-ab4d-40a87181f439",
+			"id": "4301a933-7146-4ed3-b014-3dbd7ee9e30c",
 			"key": "productPostID",
 			"value": ""
 		},
 		{
-			"id": "88162fe2-3c42-4675-bbff-1ac6adb6ca6b",
+			"id": "ba6cc287-0ef2-4dd6-afeb-048665c3d734",
 			"key": "productUserID",
 			"value": ""
 		},
 		{
-			"id": "ee5f91a9-e983-43e7-962c-b33cb033e7d5",
+			"id": "273a46c3-90b8-4ee5-ba52-322f5518d28c",
 			"key": "productRating",
 			"value": ""
 		},
 		{
-			"id": "02639f9f-4590-4010-802f-ae70b9447bdc",
+			"id": "5917d086-47f3-42b3-acb7-2c5db515175f",
 			"key": "payment_id",
 			"value": ""
 		},
 		{
-			"id": "8610c978-107b-40f5-aad7-5da0459ffc40",
+			"id": "ae324350-3c98-4ef3-a2c7-9c5b5c1b2551",
 			"key": "order-detail_id",
 			"value": ""
 		},
 		{
-			"id": "84d16d1c-e8eb-4c82-a751-ff9bbf25b037",
+			"id": "b5c2f193-3817-4b78-b01b-c076571a1a3f",
 			"key": "new-order-id",
 			"value": ""
 		}
