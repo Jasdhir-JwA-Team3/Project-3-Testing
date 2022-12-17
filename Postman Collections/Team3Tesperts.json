@@ -7433,20 +7433,8 @@
 														"id": "52bbe7b9-fbcb-483f-a675-f5f1ccd88f2b",
 														"exec": [
 															"pm.test(\"Status code correct.\", function () {",
-															"    pm.response.to.have.status(200);",
-															"    var jsonData = pm.response.json();",
-															"    pm.collectionVariables.set(\"new-order-id\",jsonData.orderId);",
+															"    pm.response.to.have.status(400);",
 															"});",
-															"",
-															"pm.test(\"User email correct.\", function () {",
-															"    pm.expect(pm.response.text()).to.include(\"testuser@gmail.com\");",
-															"});",
-															"",
-															"pm.test(\"paymentID correct.\", function () {",
-															"    var jsonData = pm.response.json();",
-															"    pm.expect(jsonData.paymentId).to.eql(\"3\");",
-															"});",
-															"",
 															""
 														],
 														"type": "text/javascript"
@@ -7471,7 +7459,7 @@
 												],
 												"body": {
 													"mode": "raw",
-													"raw": "{\n  \"paymentId\": \"3\",\n  \"shipmentAddress\": \"1234 This Rd. Sometown, FL\"\n}",
+													"raw": "{\n  \"paymentId\": \"3\",\n  \"shipmentAddress\": 1\n}",
 													"options": {
 														"raw": {
 															"language": "json"
@@ -9526,47 +9514,47 @@
 	],
 	"variable": [
 		{
-			"id": "dc31feba-8407-4bb4-8e49-4a77162a58a5",
+			"id": "7e67a77b-df6c-4186-a032-9fd173ca346c",
 			"key": "productKeyword",
 			"value": "keyword"
 		},
 		{
-			"id": "8a47d34b-4070-49b3-b334-9f70e70e1471",
+			"id": "5e6cba64-fc95-4405-a28f-a90aacfb25f8",
 			"key": "productID",
 			"value": "id"
 		},
 		{
-			"id": "bb665895-9081-4c70-8d07-c212fd54b007",
+			"id": "1e49af94-4182-462a-8215-de38bf79f855",
 			"key": "keyword",
 			"value": ""
 		},
 		{
-			"id": "4aed04e3-bf5a-43ae-aff1-f8d502e81209",
+			"id": "1a855c1b-b130-43e4-a8a4-065f24274f99",
 			"key": "productPostID",
 			"value": ""
 		},
 		{
-			"id": "f467eaaf-8353-418c-af10-9cdfe479c8dd",
+			"id": "ab75ec79-a407-4d48-a2bf-54cc640a6350",
 			"key": "productUserID",
 			"value": ""
 		},
 		{
-			"id": "28305641-f7b3-4735-9153-4a99b0ebbaa6",
+			"id": "965b03d7-4408-4da7-8b5c-7d7f7b8c8f5e",
 			"key": "productRating",
 			"value": ""
 		},
 		{
-			"id": "1db553a0-5790-4e8d-b7c7-c2876c5fc8e4",
+			"id": "14d862c5-7c75-4db5-b9e9-c78d31107647",
 			"key": "payment_id",
 			"value": ""
 		},
 		{
-			"id": "6a14fda3-e35b-4594-b15a-fd734dfa4779",
+			"id": "ec659681-60df-42f3-a4a4-fef5e837542c",
 			"key": "order-detail_id",
 			"value": ""
 		},
 		{
-			"id": "9a8aec8a-5356-439e-b74c-8964e875f46f",
+			"id": "9b5127c1-e24a-4f4a-8c2e-eab35ab8a866",
 			"key": "new-order-id",
 			"value": ""
 		}
