@@ -7422,7 +7422,7 @@
 							"name": "OrderDetail Tests",
 							"item": [
 								{
-									"name": "Create new detail and check if it was created",
+									"name": "Create new detail and check if it was created, then delete it",
 									"item": [
 										{
 											"name": "(testuser@gmail.com) http://localhost:8080/auth/login (testuser@gmail.com) Copy 3",
@@ -8764,42 +8764,42 @@
 	],
 	"variable": [
 		{
-			"id": "b83da38e-b927-41a8-8710-150a154f9df9",
+			"id": "1205aa46-2851-49a9-b6b5-93c60b1c452d",
 			"key": "productKeyword",
 			"value": "keyword"
 		},
 		{
-			"id": "dbd75bfc-42ce-4914-9b2a-d5b90d654b9e",
+			"id": "741ac929-6a65-49ba-957c-8ee55a79f8df",
 			"key": "productID",
 			"value": "id"
 		},
 		{
-			"id": "563f513b-7ce6-46f0-935e-20792059ba43",
+			"id": "5c22248d-20e2-429a-aa94-f3a1eba30185",
 			"key": "keyword",
 			"value": ""
 		},
 		{
-			"id": "0478a389-4ea8-48a0-a3d1-3ddf06a9c4ec",
+			"id": "b8e6b6ea-3fc4-4045-bd74-0782538ce6cc",
 			"key": "productPostID",
 			"value": ""
 		},
 		{
-			"id": "9d3bae56-1672-41e6-8de0-a5f51ad1b323",
+			"id": "9598caa5-e0d9-421e-9bb6-e8df4b7f1a60",
 			"key": "productUserID",
 			"value": ""
 		},
 		{
-			"id": "ef599fa9-70f6-487c-a73e-80266ca8545d",
+			"id": "b0618740-4c4f-42fc-934c-dc289a209655",
 			"key": "productRating",
 			"value": ""
 		},
 		{
-			"id": "45df9bd5-ca5c-4a0f-b3bf-e4291fc6635f",
+			"id": "9588af3a-fc32-4e87-bcbd-cae9afd89421",
 			"key": "payment_id",
 			"value": ""
 		},
 		{
-			"id": "a0128542-8b69-4fc0-92cc-a2907f4e3172",
+			"id": "d4bd75db-c61f-424b-a38b-38ffef795218",
 			"key": "order-detail_id",
 			"value": ""
 		}
