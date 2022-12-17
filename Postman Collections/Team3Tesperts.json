@@ -7927,6 +7927,139 @@
 									"id": "8def9b96-c220-4c5d-93eb-204e54f47050"
 								},
 								{
+									"name": "Create new detail with invalid string of items",
+									"item": [
+										{
+											"name": "(testuser@gmail.com) http://localhost:8080/auth/login (testuser@gmail.com) Copy 4",
+											"event": [
+												{
+													"listen": "test",
+													"script": {
+														"id": "d65ba736-d351-4b25-9796-7e32b859411a",
+														"exec": [
+															"\r",
+															"pm.test(\"Status code is 200\", function () {\r",
+															"    pm.globals.set(\"Authorization\", pm.response.headers.get(\"Authorization\"));\r",
+															"    pm.response.to.have.status(200);\r",
+															"});\r",
+															""
+														],
+														"type": "text/javascript"
+													}
+												}
+											],
+											"id": "f43adfdb-1a28-4179-9b0e-f632331e89e7",
+											"protocolProfileBehavior": {
+												"disableBodyPruning": true
+											},
+											"request": {
+												"method": "POST",
+												"header": [],
+												"body": {
+													"mode": "raw",
+													"raw": "{\r\n    \"email\": \"testuser@gmail.com\",\r\n    \"password\": \"password\"\r\n}",
+													"options": {
+														"raw": {
+															"language": "json"
+														}
+													}
+												},
+												"url": "http://localhost:8080/auth/login"
+											},
+											"response": []
+										},
+										{
+											"name": "Create new detail for order",
+											"event": [
+												{
+													"listen": "test",
+													"script": {
+														"id": "ce7a85ef-0f68-4dfe-987e-9c57c23e7371",
+														"exec": [
+															"pm.test(\"Status code correct.\", function () {",
+															"    var jsonData = pm.response.json();",
+															"    pm.collectionVariables.set(\"order-detail_id\",jsonData.id);",
+															"    pm.response.to.have.status(404);",
+															"});",
+															"",
+															"",
+															""
+														],
+														"type": "text/javascript"
+													}
+												}
+											],
+											"id": "d7506ff7-4f86-49f3-a649-241ad2d7d648",
+											"protocolProfileBehavior": {
+												"disableBodyPruning": true,
+												"disabledSystemHeaders": {
+													"connection": true
+												}
+											},
+											"request": {
+												"method": "POST",
+												"header": [],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n  \"productId\": 1,\n  \"orderId\": 1,\n  \"quantity\": -1\n}",
+													"options": {
+														"raw": {
+															"language": "json"
+														}
+													}
+												},
+												"url": "http://localhost:8080/api/orderdetail"
+											},
+											"response": []
+										},
+										{
+											"name": "get order details for specific id",
+											"event": [
+												{
+													"listen": "test",
+													"script": {
+														"id": "83ebe83a-42dc-4586-90ac-38e22e89ac3b",
+														"exec": [
+															"pm.test(\"Status code is correct.\", function () {",
+															"    pm.response.to.have.status(400);",
+															"});",
+															"",
+															""
+														],
+														"type": "text/javascript"
+													}
+												}
+											],
+											"id": "c915fc93-cbd9-42c9-8ae0-d00e85474370",
+											"protocolProfileBehavior": {
+												"disableBodyPruning": true
+											},
+											"request": {
+												"method": "GET",
+												"header": [
+													{
+														"key": "Authorization",
+														"value": "{{Authorization}}",
+														"type": "text"
+													}
+												],
+												"body": {
+													"mode": "raw",
+													"raw": "",
+													"options": {
+														"raw": {
+															"language": "json"
+														}
+													}
+												},
+												"url": "http://localhost:8080/api/orderdetail/{{order-detail_id}}"
+											},
+											"response": []
+										}
+									],
+									"id": "37a2e231-dd0a-4b06-b650-eb4b3ca26424"
+								},
+								{
 									"name": "Check all details for order",
 									"item": [
 										{
@@ -8985,42 +9118,42 @@
 	],
 	"variable": [
 		{
-			"id": "a8b66480-3dc2-43aa-97ec-c6c9fa58f174",
+			"id": "208f53ad-5f3c-459e-a940-002c0c1c86b3",
 			"key": "productKeyword",
 			"value": "keyword"
 		},
 		{
-			"id": "073c6a81-71de-4a42-af99-7f683cb5eaae",
+			"id": "e9e930e7-4417-40cc-83e2-8e8f49317b54",
 			"key": "productID",
 			"value": "id"
 		},
 		{
-			"id": "afe4843d-a58f-4a55-b77f-97827d969aeb",
+			"id": "fc4d4782-a3b2-4a4e-9114-d9acf6cb15b1",
 			"key": "keyword",
 			"value": ""
 		},
 		{
-			"id": "f78c9bd6-a9ce-4166-b152-2c14dc8c1e4a",
+			"id": "8a82af38-3d9b-4b50-b016-8cb51d71ed0e",
 			"key": "productPostID",
 			"value": ""
 		},
 		{
-			"id": "6924c051-ee86-46ea-9e5d-467fbaea0403",
+			"id": "661a91c5-be52-4c66-bc8b-95c3079bb1c5",
 			"key": "productUserID",
 			"value": ""
 		},
 		{
-			"id": "203422ba-98e4-48ee-92c1-f5a26f7d9e74",
+			"id": "47a28b8a-4321-40d9-9290-eb54198f2c0f",
 			"key": "productRating",
 			"value": ""
 		},
 		{
-			"id": "5a22ae96-0d67-4209-89d9-a055798b6d0e",
+			"id": "d1a3d1c8-cfd9-42dc-aa9b-971310295e18",
 			"key": "payment_id",
 			"value": ""
 		},
 		{
-			"id": "f7564cd5-e344-4f86-9110-8b95a986d964",
+			"id": "afe18d21-a57b-4aa2-8e02-a2325d10ae8e",
 			"key": "order-detail_id",
 			"value": ""
 		}
