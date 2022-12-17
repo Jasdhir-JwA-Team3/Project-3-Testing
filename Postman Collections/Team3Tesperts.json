@@ -7423,7 +7423,103 @@
 							"item": [
 								{
 									"name": "Create new detail and check if it was created",
-									"item": [],
+									"item": [
+										{
+											"name": "(testuser@gmail.com) http://localhost:8080/auth/login (testuser@gmail.com) Copy 3",
+											"event": [
+												{
+													"listen": "test",
+													"script": {
+														"id": "d65ba736-d351-4b25-9796-7e32b859411a",
+														"exec": [
+															"\r",
+															"pm.test(\"Status code is 200\", function () {\r",
+															"    pm.globals.set(\"Authorization\", pm.response.headers.get(\"Authorization\"));\r",
+															"    pm.response.to.have.status(200);\r",
+															"});\r",
+															""
+														],
+														"type": "text/javascript"
+													}
+												}
+											],
+											"id": "d56a27b8-dccd-4686-ba17-917c9c235b0a",
+											"protocolProfileBehavior": {
+												"disableBodyPruning": true
+											},
+											"request": {
+												"method": "POST",
+												"header": [],
+												"body": {
+													"mode": "raw",
+													"raw": "{\r\n    \"email\": \"testuser@gmail.com\",\r\n    \"password\": \"password\"\r\n}",
+													"options": {
+														"raw": {
+															"language": "json"
+														}
+													}
+												},
+												"url": "http://localhost:8080/auth/login"
+											},
+											"response": []
+										},
+										{
+											"name": "Create new detail for order",
+											"event": [
+												{
+													"listen": "test",
+													"script": {
+														"id": "ce7a85ef-0f68-4dfe-987e-9c57c23e7371",
+														"exec": [
+															"pm.test(\"Status code correct.\", function () {",
+															"    pm.response.to.have.status(200);",
+															"});",
+															"",
+															"pm.test(\"Correct order id.\", function () {",
+															"    var jsonData = pm.response.json();",
+															"    pm.expect(jsonData.ordersId).to.eql(1);",
+															"});",
+															"",
+															"pm.test(\"Correct product id.\", function () {",
+															"    var jsonData = pm.response.json();",
+															"    pm.expect(jsonData.productId).to.eql(1);",
+															"});",
+															"",
+															"pm.test(\"Correct quantity.\", function () {",
+															"    var jsonData = pm.response.json();",
+															"    pm.expect(jsonData.quantity).to.eql(1.0);",
+															"});",
+															"",
+															""
+														],
+														"type": "text/javascript"
+													}
+												}
+											],
+											"id": "ec9c009f-436d-4d57-af8b-f2b846f17071",
+											"protocolProfileBehavior": {
+												"disableBodyPruning": true,
+												"disabledSystemHeaders": {
+													"connection": true
+												}
+											},
+											"request": {
+												"method": "POST",
+												"header": [],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n  \"productId\": 1,\n  \"orderId\": 1,\n  \"quantity\": 1\n}",
+													"options": {
+														"raw": {
+															"language": "json"
+														}
+													}
+												},
+												"url": "http://localhost:8080/api/orderdetail"
+											},
+											"response": []
+										}
+									],
 									"id": "432d0922-93be-49fc-b807-24044b3ccd52"
 								},
 								{
@@ -8636,37 +8732,37 @@
 	],
 	"variable": [
 		{
-			"id": "f039cceb-d3d3-4aef-b362-3cc97ac0781e",
+			"id": "34ce09cb-f2ed-476a-b09b-4902c147e645",
 			"key": "productKeyword",
 			"value": "keyword"
 		},
 		{
-			"id": "36cf3395-0d2f-4163-ba43-6eb9d272265a",
+			"id": "4bb9c3d0-9882-4049-a27b-4b408a546001",
 			"key": "productID",
 			"value": "id"
 		},
 		{
-			"id": "500ae720-4b26-4208-bba1-e232e939bcf4",
+			"id": "3c3b6afc-1167-4df4-bc35-1246cfb97604",
 			"key": "keyword",
 			"value": ""
 		},
 		{
-			"id": "54cfba5b-621e-427f-b804-787f4b843328",
+			"id": "9dd4a42b-bf70-4a10-b144-2196ffb4b8e9",
 			"key": "productPostID",
 			"value": ""
 		},
 		{
-			"id": "7cc314d4-0431-4a90-96bf-d5c02bda5a2d",
+			"id": "86b68796-e7d6-45ed-a839-ee2e4a152b2b",
 			"key": "productUserID",
 			"value": ""
 		},
 		{
-			"id": "22973d09-aabf-4bb2-87e5-d3eb86081b4c",
+			"id": "4ee30018-8476-469b-a738-742be5b2400e",
 			"key": "productRating",
 			"value": ""
 		},
 		{
-			"id": "277bc046-c218-4a92-9dcd-2f3220e10b13",
+			"id": "587c6384-7baf-47c4-bd90-47051024c4b9",
 			"key": "payment_id",
 			"value": ""
 		}
