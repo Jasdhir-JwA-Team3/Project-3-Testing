@@ -7625,16 +7625,9 @@
 														"id": "83ebe83a-42dc-4586-90ac-38e22e89ac3b",
 														"exec": [
 															"pm.test(\"Status code is correct.\", function () {",
-															"    pm.response.to.have.status(200);",
+															"    pm.response.to.have.status(404);",
 															"});",
-															"",
-															"pm.test(\"firstname is correct.\", function () {",
-															"    pm.expect(pm.response.text()).to.include(\"Testerson\");",
-															"});",
-															"",
-															"pm.test(\"lastname is correct.\", function () {",
-															"    pm.expect(pm.response.text()).to.include(\"Usertown\");",
-															"});"
+															""
 														],
 														"type": "text/javascript"
 													}
@@ -8814,42 +8807,42 @@
 	],
 	"variable": [
 		{
-			"id": "d2b090a8-58a4-4551-b548-32f97ce46e47",
+			"id": "04ab6b54-c0e2-4aec-b799-e695e59e08d7",
 			"key": "productKeyword",
 			"value": "keyword"
 		},
 		{
-			"id": "8a8f0c7d-c448-42de-98c9-fbd7ff122d59",
+			"id": "fa131812-5b6b-4624-a3c9-745398adb1cd",
 			"key": "productID",
 			"value": "id"
 		},
 		{
-			"id": "fab38be9-3d1e-4d5a-a1e5-fe681c29efb9",
+			"id": "331897bb-7395-48a7-8ce9-5a7d25b55444",
 			"key": "keyword",
 			"value": ""
 		},
 		{
-			"id": "e9e06119-08cb-473c-bf87-db8af282689a",
+			"id": "1817b1c2-8179-4d55-859c-8891125be347",
 			"key": "productPostID",
 			"value": ""
 		},
 		{
-			"id": "e05a5868-894c-444d-a35b-56c8daaabde2",
+			"id": "f93af8b5-da35-4339-9397-d69d654853d3",
 			"key": "productUserID",
 			"value": ""
 		},
 		{
-			"id": "96383b4f-e785-4bbc-a1ed-86e5ad9ec0fd",
+			"id": "0c164672-1783-46c9-8c7d-7c1a6bdfb983",
 			"key": "productRating",
 			"value": ""
 		},
 		{
-			"id": "468f40c1-7d73-4f79-9a47-06bdf42e8b8f",
+			"id": "a7ef350f-e4cb-42e8-b0e4-8710df37b1c0",
 			"key": "payment_id",
 			"value": ""
 		},
 		{
-			"id": "9c375dee-c14b-4d3f-b09a-c53f7f939396",
+			"id": "4fccc0e9-755b-4cef-9a8a-ff7e23ee35f6",
 			"key": "order-detail_id",
 			"value": ""
 		}
