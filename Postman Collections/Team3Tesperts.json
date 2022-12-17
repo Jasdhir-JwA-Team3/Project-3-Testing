@@ -7576,6 +7576,160 @@
 									"id": "432d0922-93be-49fc-b807-24044b3ccd52"
 								},
 								{
+									"name": "Create new detail and check if it was created Copy",
+									"item": [
+										{
+											"name": "(testuser@gmail.com) http://localhost:8080/auth/login (testuser@gmail.com) Copy 3",
+											"event": [
+												{
+													"listen": "test",
+													"script": {
+														"id": "d65ba736-d351-4b25-9796-7e32b859411a",
+														"exec": [
+															"\r",
+															"pm.test(\"Status code is 200\", function () {\r",
+															"    pm.globals.set(\"Authorization\", pm.response.headers.get(\"Authorization\"));\r",
+															"    pm.response.to.have.status(200);\r",
+															"});\r",
+															""
+														],
+														"type": "text/javascript"
+													}
+												}
+											],
+											"id": "61404ad8-1795-43a9-add7-69b58fbe232d",
+											"protocolProfileBehavior": {
+												"disableBodyPruning": true
+											},
+											"request": {
+												"method": "POST",
+												"header": [],
+												"body": {
+													"mode": "raw",
+													"raw": "{\r\n    \"email\": \"testuser@gmail.com\",\r\n    \"password\": \"password\"\r\n}",
+													"options": {
+														"raw": {
+															"language": "json"
+														}
+													}
+												},
+												"url": "http://localhost:8080/auth/login"
+											},
+											"response": []
+										},
+										{
+											"name": "Create new detail for order",
+											"event": [
+												{
+													"listen": "test",
+													"script": {
+														"id": "ce7a85ef-0f68-4dfe-987e-9c57c23e7371",
+														"exec": [
+															"pm.test(\"Status code correct.\", function () {",
+															"    pm.response.to.have.status(200);",
+															"    var jsonData = pm.response.json();",
+															"    pm.collectionVariables.set(\"order-detail_id\",jsonData.id);",
+															"});",
+															"",
+															"pm.test(\"Correct order id.\", function () {",
+															"    var jsonData = pm.response.json();",
+															"    pm.expect(jsonData.ordersId).to.eql(1);",
+															"});",
+															"",
+															"pm.test(\"Correct product id.\", function () {",
+															"    var jsonData = pm.response.json();",
+															"    pm.expect(jsonData.productId).to.eql(1);",
+															"});",
+															"",
+															"pm.test(\"Correct quantity.\", function () {",
+															"    var jsonData = pm.response.json();",
+															"    pm.expect(jsonData.quantity).to.eql(1.0);",
+															"});",
+															"",
+															""
+														],
+														"type": "text/javascript"
+													}
+												}
+											],
+											"id": "f20717a9-c8ff-41f0-a40d-0cafcb4d6a9b",
+											"protocolProfileBehavior": {
+												"disableBodyPruning": true,
+												"disabledSystemHeaders": {
+													"connection": true
+												}
+											},
+											"request": {
+												"method": "POST",
+												"header": [],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n  \"productId\": 1,\n  \"orderId\": 1,\n  \"quantity\": 1\n}",
+													"options": {
+														"raw": {
+															"language": "json"
+														}
+													}
+												},
+												"url": "http://localhost:8080/api/orderdetail"
+											},
+											"response": []
+										},
+										{
+											"name": "get order details for specific id",
+											"event": [
+												{
+													"listen": "test",
+													"script": {
+														"id": "83ebe83a-42dc-4586-90ac-38e22e89ac3b",
+														"exec": [
+															"pm.test(\"Status code is correct.\", function () {",
+															"    pm.response.to.have.status(200);",
+															"});",
+															"",
+															"pm.test(\"firstname is correct.\", function () {",
+															"    pm.expect(pm.response.text()).to.include(\"Testerson\");",
+															"});",
+															"",
+															"pm.test(\"lastname is correct.\", function () {",
+															"    pm.expect(pm.response.text()).to.include(\"Usertown\");",
+															"    pm.collectionVariables.set(\"order-detail_id\",);",
+															"});"
+														],
+														"type": "text/javascript"
+													}
+												}
+											],
+											"id": "ff6afce3-b88a-48be-b52d-aebeb8a2f39f",
+											"protocolProfileBehavior": {
+												"disableBodyPruning": true
+											},
+											"request": {
+												"method": "GET",
+												"header": [
+													{
+														"key": "Authorization",
+														"value": "{{Authorization}}",
+														"type": "text"
+													}
+												],
+												"body": {
+													"mode": "raw",
+													"raw": "",
+													"options": {
+														"raw": {
+															"language": "json"
+														}
+													}
+												},
+												"url": "http://localhost:8080/api/orderdetail/{{order-detail_id}}"
+											},
+											"response": []
+										}
+									],
+									"id": "9d52c9a0-c14b-4175-8d90-f8bc1e9e835a"
+								},
+								{
 									"name": "Create new detail with invalid order idand check if it was created",
 									"item": [
 										{
@@ -7706,45 +7860,6 @@
 										}
 									],
 									"id": "3eec8c4e-639b-4898-b8f6-3da2b01698e3"
-								},
-								{
-									"name": "(testuser@gmail.com) http://localhost:8080/auth/login (testuser@gmail.com) Copy 2",
-									"event": [
-										{
-											"listen": "test",
-											"script": {
-												"id": "d65ba736-d351-4b25-9796-7e32b859411a",
-												"exec": [
-													"\r",
-													"pm.test(\"Status code is 200\", function () {\r",
-													"    pm.globals.set(\"Authorization\", pm.response.headers.get(\"Authorization\"));\r",
-													"    pm.response.to.have.status(200);\r",
-													"});\r",
-													""
-												],
-												"type": "text/javascript"
-											}
-										}
-									],
-									"id": "5a856ad9-15ab-4164-98d9-6b093250f4c2",
-									"protocolProfileBehavior": {
-										"disableBodyPruning": true
-									},
-									"request": {
-										"method": "POST",
-										"header": [],
-										"body": {
-											"mode": "raw",
-											"raw": "{\r\n    \"email\": \"testuser@gmail.com\",\r\n    \"password\": \"password\"\r\n}",
-											"options": {
-												"raw": {
-													"language": "json"
-												}
-											}
-										},
-										"url": "http://localhost:8080/auth/login"
-									},
-									"response": []
 								},
 								{
 									"name": "/api/orderdetail",
@@ -8917,42 +9032,42 @@
 	],
 	"variable": [
 		{
-			"id": "57c98076-7715-4e62-8198-2e536c555a7b",
+			"id": "5e28715a-df9b-4bc1-8bdf-085bfabd90e6",
 			"key": "productKeyword",
 			"value": "keyword"
 		},
 		{
-			"id": "f82291f4-d6e4-49eb-98d1-93bb5531a6d9",
+			"id": "6211abc6-5719-46cf-9706-ed31ca7611f5",
 			"key": "productID",
 			"value": "id"
 		},
 		{
-			"id": "a65c074d-91b7-43d5-ad6b-66905755339c",
+			"id": "a2e46b74-8450-4467-a65d-db1100acd211",
 			"key": "keyword",
 			"value": ""
 		},
 		{
-			"id": "44192cee-b5fb-42d7-9dbe-230b2edf97e8",
+			"id": "5706de99-234a-419a-abe9-34468995504c",
 			"key": "productPostID",
 			"value": ""
 		},
 		{
-			"id": "4a593bc1-a975-455f-9ee0-d25d5bb94ee8",
+			"id": "3174d3c0-2dc9-42dd-a92b-505024fc0b0d",
 			"key": "productUserID",
 			"value": ""
 		},
 		{
-			"id": "ee909b22-459a-4cca-9663-892f2e3f8ed9",
+			"id": "6885c9d8-85bf-4382-81c1-e1a1ee9f81d1",
 			"key": "productRating",
 			"value": ""
 		},
 		{
-			"id": "844bd8ad-c623-471c-a4dc-c3a39986a8a1",
+			"id": "06445bb9-5d08-4022-96f4-7c3254cad772",
 			"key": "payment_id",
 			"value": ""
 		},
 		{
-			"id": "a88d8dbb-815d-401e-a753-8a63eef3b9ed",
+			"id": "23474f1c-aec7-4290-a182-50ef16cb41b2",
 			"key": "order-detail_id",
 			"value": ""
 		}
