@@ -7259,7 +7259,7 @@
 									"response": []
 								},
 								{
-									"name": "/api/order/history",
+									"name": "get order history for logged in user",
 									"event": [
 										{
 											"listen": "test",
@@ -8631,37 +8631,37 @@
 	],
 	"variable": [
 		{
-			"id": "da542315-f9af-4943-bbf8-9c8963172d15",
+			"id": "4f8955f8-0381-475c-92dc-e366b071cf88",
 			"key": "productKeyword",
 			"value": "keyword"
 		},
 		{
-			"id": "4ed1224a-4704-4ba9-89b6-140021ebfbca",
+			"id": "1cc03d94-1ae1-4a2d-af6b-0e353816cc90",
 			"key": "productID",
 			"value": "id"
 		},
 		{
-			"id": "54ae0e41-ebda-43b1-916c-3d023be5698e",
+			"id": "41e7d697-df94-4cf9-ba38-75358fab1187",
 			"key": "keyword",
 			"value": ""
 		},
 		{
-			"id": "b1bc9229-56f2-4df8-b425-0d0f255ebdc9",
+			"id": "995dba45-6b58-464f-acee-08e6078c3e9b",
 			"key": "productPostID",
 			"value": ""
 		},
 		{
-			"id": "c79bc413-1e8a-4456-beb3-708d609b33aa",
+			"id": "b35faabb-9e65-406c-bb08-b7cf50bdea92",
 			"key": "productUserID",
 			"value": ""
 		},
 		{
-			"id": "a9f0b2a8-1ba6-473b-b4f3-cb0c7f0c9720",
+			"id": "e1bc91b8-50c9-478b-ace6-f1d6d3995b60",
 			"key": "productRating",
 			"value": ""
 		},
 		{
-			"id": "ebbbb87d-f17d-4e8c-a137-3f3013d025b0",
+			"id": "330b511b-f596-4f3a-8997-fc658777dcde",
 			"key": "payment_id",
 			"value": ""
 		}
