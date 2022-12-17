@@ -7422,6 +7422,11 @@
 							"name": "OrderDetail Tests",
 							"item": [
 								{
+									"name": "New Folder",
+									"item": [],
+									"id": "432d0922-93be-49fc-b807-24044b3ccd52"
+								},
+								{
 									"name": "(testuser@gmail.com) http://localhost:8080/auth/login (testuser@gmail.com) Copy 2",
 									"event": [
 										{
@@ -8631,37 +8636,37 @@
 	],
 	"variable": [
 		{
-			"id": "f7359705-178d-4a4b-95b4-0d1b4f9d1766",
+			"id": "ef35f15b-8cbc-4382-9f71-9048c69d5310",
 			"key": "productKeyword",
 			"value": "keyword"
 		},
 		{
-			"id": "1808f1fa-3d6c-47d1-bd24-b502a5cbec7d",
+			"id": "ebd37c6e-c67e-45c3-9da4-172d220931d9",
 			"key": "productID",
 			"value": "id"
 		},
 		{
-			"id": "4574ba8f-4244-4eb9-a769-4654757c9ba5",
+			"id": "405aeadc-f8b0-42a9-aae0-925e5febc28e",
 			"key": "keyword",
 			"value": ""
 		},
 		{
-			"id": "f44df51a-a3ad-44de-b192-5a7b3e34c00b",
+			"id": "271a0c19-abad-4e91-a9f3-134b3f44d440",
 			"key": "productPostID",
 			"value": ""
 		},
 		{
-			"id": "88b99890-75e3-470e-83ed-83e750adcfb3",
+			"id": "67bd6b97-81d1-4210-8e6f-5bc63dae4d6c",
 			"key": "productUserID",
 			"value": ""
 		},
 		{
-			"id": "afcab744-9d4f-45ab-9142-37ca9b0acbbe",
+			"id": "5a7f2c9e-048d-437c-8fba-f80acd7cf7c0",
 			"key": "productRating",
 			"value": ""
 		},
 		{
-			"id": "818a2de7-9795-4c46-abb2-6fa115b26959",
+			"id": "b8f2a3dc-13cb-4c32-b331-63a7e0cf014a",
 			"key": "payment_id",
 			"value": ""
 		}
