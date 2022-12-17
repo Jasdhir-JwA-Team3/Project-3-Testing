@@ -7539,7 +7539,6 @@
 															"",
 															"pm.test(\"lastname is correct.\", function () {",
 															"    pm.expect(pm.response.text()).to.include(\"Usertown\");",
-															"    pm.collectionVariables.set(\"order-detail_id\",);",
 															"});"
 														],
 														"type": "text/javascript"
@@ -8910,42 +8909,42 @@
 	],
 	"variable": [
 		{
-			"id": "61ad3dd3-673d-4309-ad83-a4fbacfc7d80",
+			"id": "b556024f-3b97-4001-9223-d866a1f4450b",
 			"key": "productKeyword",
 			"value": "keyword"
 		},
 		{
-			"id": "8b21eb64-4c50-4688-9c7e-5e8825240e9e",
+			"id": "755bd25d-3a7d-4e8a-b111-2380340fb7a5",
 			"key": "productID",
 			"value": "id"
 		},
 		{
-			"id": "f6722d04-a2ba-4c68-b8be-c1889b9e74f3",
+			"id": "34e06674-d156-4a8d-8b6b-89d45994eed1",
 			"key": "keyword",
 			"value": ""
 		},
 		{
-			"id": "d8b7de99-0d0c-4493-a967-f7587639c772",
+			"id": "b7058d18-7374-47cf-9b03-d5b948fdad72",
 			"key": "productPostID",
 			"value": ""
 		},
 		{
-			"id": "5821117b-88c8-4072-a5a1-f0dd111a4e1c",
+			"id": "fbea749f-17b5-4813-838e-49c8cd2116c2",
 			"key": "productUserID",
 			"value": ""
 		},
 		{
-			"id": "4ed169d0-bd99-43e2-ace9-47bcf6d72c09",
+			"id": "78840cfc-5b3b-4313-a84a-8ff680df1a55",
 			"key": "productRating",
 			"value": ""
 		},
 		{
-			"id": "e1c3dd11-c182-4e89-a272-b5fc9d69b89a",
+			"id": "5a70b823-50ae-4cb9-8ee2-de13e6898575",
 			"key": "payment_id",
 			"value": ""
 		},
 		{
-			"id": "92ae429a-1de7-4485-b35f-2e78773a8ea4",
+			"id": "b98b0f27-2db1-48d5-87bd-bad9c6f11546",
 			"key": "order-detail_id",
 			"value": ""
 		}
