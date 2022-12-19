@@ -8931,12 +8931,13 @@
 													{
 														"key": "Authorization",
 														"value": "{{Authorization}}",
-														"type": "text"
+														"type": "text",
+														"disabled": true
 													}
 												],
 												"body": {
 													"mode": "raw",
-													"raw": "{\n  \"paymentId\": \"3\",\n  \"cardType\": \"456\",\n  \"expDate\": \"2025-12-05\",\n  \"cardNumber\": \"0123456789101112\"\n}",
+													"raw": "{\n  \"paymentId\": \"3\",\n  \"cardType\": \"string\",\n  \"expDate\": \"2022-12-05T20:01:15.857Z\",\n  \"cardNumber\": \"string\"\n}",
 													"options": {
 														"raw": {
 															"language": "json"
@@ -9391,47 +9392,47 @@
 	],
 	"variable": [
 		{
-			"id": "ed3a8e0c-92f9-4e52-83a8-9f1b8f0a40da",
+			"id": "115d58f7-9080-4624-8495-ccf981c0801c",
 			"key": "productKeyword",
 			"value": "keyword"
 		},
 		{
-			"id": "1472410c-a9bd-46e4-825c-53c267a603ae",
+			"id": "8aacd7ad-0346-4695-b25f-d9180bdd3484",
 			"key": "productID",
 			"value": "id"
 		},
 		{
-			"id": "cefa493e-130c-4e35-ac86-66bff17155fc",
+			"id": "53a76435-b2d9-4ab1-b8a0-627b7efbdaf8",
 			"key": "keyword",
 			"value": ""
 		},
 		{
-			"id": "da970a63-5ed4-4570-8b01-11d7bc78ba06",
+			"id": "46583219-8c85-4880-b0b1-3771f7976ffc",
 			"key": "productPostID",
 			"value": ""
 		},
 		{
-			"id": "ab46e16a-3dcc-40af-9eb0-11805ac7fb15",
+			"id": "d9537ad0-90a5-48f3-920d-bb6da2ad0605",
 			"key": "productUserID",
 			"value": ""
 		},
 		{
-			"id": "fea88486-6290-4303-9a87-069f81799a85",
+			"id": "ee2911e6-680a-4b95-8a28-cc5cfc8cf230",
 			"key": "productRating",
 			"value": ""
 		},
 		{
-			"id": "b023f4ec-8010-45bd-9ed3-dd74fd9ee988",
+			"id": "0eade7a1-4758-4fbe-a003-e4d38b97c687",
 			"key": "payment_id",
 			"value": ""
 		},
 		{
-			"id": "57eb8b84-42f4-4415-b3e1-6ac73ec2633e",
+			"id": "bb266cb0-a84f-4d92-9074-a56b4f150e17",
 			"key": "order-detail_id",
 			"value": ""
 		},
 		{
-			"id": "928046e3-af68-4863-a731-30984d57e513",
+			"id": "4e5b12c9-da7c-4ed8-b5cd-64734379520d",
 			"key": "new-order-id",
 			"value": ""
 		}
