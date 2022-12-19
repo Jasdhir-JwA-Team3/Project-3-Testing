@@ -214,10 +214,6 @@ public class CartSteps {
     @And("The user types in a {string} in last name field.")
     public void theUserTypesInAInLastNameField(String lastName) {
         MainRunner.cartPage.lastnameinputfield.sendKeys(lastName);
-
-
-
-
     }
 
     @And("The user types in a {string} in address{int} field.")
