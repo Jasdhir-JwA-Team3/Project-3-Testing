@@ -13,9 +13,9 @@ There is some setup for the Front-End and the Back-End to work together and the 
 * Docker for Front-end and Back-end docker containers.
 * IntelliJ as well as JDK 8.
 * Maven for build automation 
-* TestNG for testing
+* JUnit for testing
 * Cucumber for BDD testing
 * Postman for API endpoint testing
 * Selenium for automated e2e testing
-
+* MockMVC integrated testing for endpoints in Spring Boot
 
