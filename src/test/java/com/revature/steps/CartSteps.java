@@ -2,6 +2,7 @@ package com.revature.steps;
 
 import com.revature.pages.CartPage;
 import com.revature.runner.MainRunner;
+import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
@@ -204,4 +205,67 @@ public class CartSteps {
     public void the_cart_total_should_be_accurate() {
         Assert.assertEquals(MainRunner.cartPage.totalCostofOrderDisplay.getText(),"$20.00");
         }
+
+    @And("The user types in a {string} in first name field.")
+    public void theUserTypesInAInFirstNameField(String firstName) {
+        MainRunner.cartPage.firstnameinputfield.sendKeys(firstName);
+    }
+
+    @And("The user types in a {string} in last name field.")
+    public void theUserTypesInAInLastNameField(String lastName) {
+        MainRunner.cartPage.lastnameinputfield.sendKeys(lastName);
+    }
+
+    @And("The user types in a {string} in address{int} field.")
+    public void theUserTypesInAInAddressField(String address, int addNum) {
+        MainRunner.cartPage.addressinputfield.sendKeys(address);
+    }
+
+    @And("The user types in a {string} in city field.")
+    public void theUserTypesInAInCityField(String city) {
+        MainRunner.cartPage.cityInputfield.sendKeys(city);
+    }
+
+    @And("The user types in a {string} in state field.")
+    public void theUserTypesInAInStateField(String state) {
+        MainRunner.cartPage.stateInputfield.sendKeys(state);
+    }
+
+    @And("The user types in a {string} in zip field.")
+    public void theUserTypesInAInZipField(String zip) {
+        MainRunner.cartPage.countryInputfield.sendKeys(zip);
+    }
+
+    @And("The user types in a {string} in country field.")
+    public void theUserTypesInAInCountryField(String country) {
+        MainRunner.cartPage.zipInputfield.sendKeys(country);
+    }
+
+    @Then("They should be notified of a needed {string}.")
+    public void theyShouldBeNotifiedOfANeededField(String field) {
+        switch (field) {
+            case "firstName":
+                Assert.assertEquals("Please fill out this field.", MainRunner.cartPage.firstnameinputfield.getAttribute("validationMessage"));
+                break;
+            case "lastName":
+                Assert.assertEquals("Please fill out this field.", MainRunner.cartPage.lastnameinputfield.getAttribute("validationMessage"));
+                break;
+            case "address":
+                Assert.assertEquals("Please fill out this field.", MainRunner.cartPage.addressinputfield.getAttribute("validationMessage"));
+                break;
+            case "city":
+                Assert.assertEquals("Please fill out this field.", MainRunner.cartPage.cityInputfield.getAttribute("validationMessage"));
+                break;
+            case "state":
+                // No validation attribute so it fails
+                Assert.assertEquals("Please fill out this field.", MainRunner.cartPage.stateInputfield.getAttribute("validationMessage"));
+                break;
+            case "zip":
+                Assert.assertEquals("Please fill out this field.", MainRunner.cartPage.countryInputfield.getAttribute("validationMessage"));
+                break;
+            case "country":
+                Assert.assertEquals("Please fill out this field.", MainRunner.cartPage.zipInputfield.getAttribute("validationMessage"));
+                break;
+        }
+    }
 }
