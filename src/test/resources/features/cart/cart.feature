@@ -30,15 +30,16 @@ Feature: Cart
       And The user types in a "<Zip>" in zip field.
       And The user types in a "<Country>" in country field.
       And They click next on the shipping page.
-      Then They should be notified of a needed field.
+      Then They should be notified of a needed "<Field>".
     Examples:
-      | First | Last  | Address1 | Address2   | City     | State | Zip   | Country |
-      | Benny | Donny | 12 Zebra | 1332 Fuzzy | Portland | OR    | 97035 | USA     |
-      | Benny | Donny | 12 Zebra | 1332 Fuzzy | Portland | OR    | 97035 | USA     |
-      | Benny | Donny | 12 Zebra | 1332 Fuzzy | Portland | OR    | 97035 | USA     |
-      | Benny | Donny | 12 Zebra | 1332 Fuzzy | Portland | OR    | 97035 | USA     |
-      | Benny | Donny | 12 Zebra | 1332 Fuzzy | Portland | OR    | 97035 | USA     |
-      | Benny | Donny | 12 Zebra | 1332 Fuzzy | Portland | OR    | 97035 | USA     |
+      | First | Last  | Address1 | Address2   | City     | State | Zip   | Country | Field     |
+      |       | Donny | 12 Zebra | 1332 Fuzzy | Portland | OR    | 97035 | USA     | firstName |
+      | Benny |       | 12 Zebra | 1332 Fuzzy | Portland | OR    | 97035 | USA     | lastName  |
+      | Benny | Donny |          |            | Portland | OR    | 97035 | USA     | address   |
+      | Benny | Donny | 12 Zebra | 1332 Fuzzy |          | OR    | 97035 | USA     | city      |
+      | Benny | Donny | 12 Zebra | 1332 Fuzzy | Portland |       | 97035 | USA     | state     |
+      | Benny | Donny | 12 Zebra | 1332 Fuzzy | Portland | OR    |       | USA     | zip       |
+      | Benny | Donny | 12 Zebra | 1332 Fuzzy | Portland | OR    | 97035 |         | country   |
 
     #42 A user should not be able to enter anything other than numbers for card number.(FAIL)
     Scenario: A user should not be able to enter anything other than numbers for card number.

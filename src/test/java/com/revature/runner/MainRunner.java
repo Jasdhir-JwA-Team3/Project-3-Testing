@@ -12,7 +12,7 @@ import org.testng.annotations.BeforeMethod;
 
 import java.time.Duration;
 
-@CucumberOptions(features = "src/test/resources/features", glue = "com.revature.steps", tags = "@ResetPassword")
+@CucumberOptions(features = "src/test/resources/features", glue = "com.revature.steps", tags = "@UserAddressNoBlank")
 public class MainRunner extends AbstractTestNGCucumberTests {
     public static WebDriver driver;
     public static WebDriverWait wait;

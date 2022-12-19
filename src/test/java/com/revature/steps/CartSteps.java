@@ -233,15 +233,39 @@ public class CartSteps {
 
     @And("The user types in a {string} in zip field.")
     public void theUserTypesInAInZipField(String zip) {
-        MainRunner.cartPage.zipInputfield.sendKeys(zip);
+        MainRunner.cartPage.countryInputfield.sendKeys(zip);
     }
 
     @And("The user types in a {string} in country field.")
     public void theUserTypesInAInCountryField(String country) {
-        MainRunner.cartPage.countryInputfield.sendKeys(country);
+        MainRunner.cartPage.zipInputfield.sendKeys(country);
     }
 
-    @Then("They should be notified of a needed field.")
-    public void theyShouldBeNotifiedOfANeededField() {
+    @Then("They should be notified of a needed {string}.")
+    public void theyShouldBeNotifiedOfANeededField(String field) {
+        switch (field) {
+            case "firstName":
+                Assert.assertEquals("Please fill out this field.", MainRunner.cartPage.firstnameinputfield.getAttribute("validationMessage"));
+                break;
+            case "lastName":
+                Assert.assertEquals("Please fill out this field.", MainRunner.cartPage.lastnameinputfield.getAttribute("validationMessage"));
+                break;
+            case "address":
+                Assert.assertEquals("Please fill out this field.", MainRunner.cartPage.addressinputfield.getAttribute("validationMessage"));
+                break;
+            case "city":
+                Assert.assertEquals("Please fill out this field.", MainRunner.cartPage.cityInputfield.getAttribute("validationMessage"));
+                break;
+            case "state":
+                // No validation attribute so it fails
+                Assert.assertEquals("Please fill out this field.", MainRunner.cartPage.stateInputfield.getAttribute("validationMessage"));
+                break;
+            case "zip":
+                Assert.assertEquals("Please fill out this field.", MainRunner.cartPage.countryInputfield.getAttribute("validationMessage"));
+                break;
+            case "country":
+                Assert.assertEquals("Please fill out this field.", MainRunner.cartPage.zipInputfield.getAttribute("validationMessage"));
+                break;
+        }
     }
 }
