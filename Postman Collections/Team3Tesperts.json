@@ -867,7 +867,7 @@
 								],
 								"body": {
 									"mode": "raw",
-									"raw": "{\r\n    \"paymentId\" : \"safecard111\"\r\n}",
+									"raw": "{\r\n    \"paymentId\" : \"3\"\r\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -9391,47 +9391,47 @@
 	],
 	"variable": [
 		{
-			"id": "a5378a9f-1b1f-4003-9218-cf301d6db000",
+			"id": "09d9a78a-2b57-414a-a8d7-77d6a04855e0",
 			"key": "productKeyword",
 			"value": "keyword"
 		},
 		{
-			"id": "2acb06fc-874c-4890-84a4-270bb74d269e",
+			"id": "0a83fa88-2480-417f-b98a-f14108e60e09",
 			"key": "productID",
 			"value": "id"
 		},
 		{
-			"id": "439bcedb-f447-4707-a18b-b42e231a38ba",
+			"id": "1d32586d-d3e5-49a2-8fee-34f3a1d2c480",
 			"key": "keyword",
 			"value": ""
 		},
 		{
-			"id": "75e80342-cf9e-4a41-ab65-8fb19ff8ccd9",
+			"id": "34797655-7e51-47d6-93d0-6396d1ba91ca",
 			"key": "productPostID",
 			"value": ""
 		},
 		{
-			"id": "48d8a906-bb9c-4b0b-9de7-bd723e739a6b",
+			"id": "3ca97d2a-6396-4675-b00e-6b186bfda695",
 			"key": "productUserID",
 			"value": ""
 		},
 		{
-			"id": "cc4f98a7-64f3-43c0-ad4b-679660e5c5a1",
+			"id": "fa22795a-92b3-4ad9-86a1-4634d4595d41",
 			"key": "productRating",
 			"value": ""
 		},
 		{
-			"id": "0e284980-fc35-4f9c-9b81-e6be0ce4c580",
+			"id": "606fafa0-123a-49d7-a1c2-9d5980ab221e",
 			"key": "payment_id",
 			"value": ""
 		},
 		{
-			"id": "3aa90e82-db9c-46a8-9487-1f1a0da40590",
+			"id": "bf0ea9c5-8d5a-417e-807a-023f1d201e52",
 			"key": "order-detail_id",
 			"value": ""
 		},
 		{
-			"id": "d6366872-525f-4b08-97e2-bc035a5d70bc",
+			"id": "39e8e353-9f2b-4514-bdb7-ce4bdff9a7c7",
 			"key": "new-order-id",
 			"value": ""
 		}
