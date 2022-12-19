@@ -2,6 +2,7 @@ package com.revature.steps;
 
 import com.revature.pages.CartPage;
 import com.revature.runner.MainRunner;
+import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
@@ -204,4 +205,36 @@ public class CartSteps {
     public void the_cart_total_should_be_accurate() {
         Assert.assertEquals(MainRunner.cartPage.totalCostofOrderDisplay.getText(),"$20.00");
         }
+
+    @And("The user types in a {string} in first name field.")
+    public void theUserTypesInAInFirstNameField(String firstName) {
+    }
+
+    @And("The user types in a {string} in last name field.")
+    public void theUserTypesInAInLastNameField(String lastName) {
+    }
+
+    @And("The user types in a {string} in address{int} field.")
+    public void theUserTypesInAInAddressField(String address, int addNum) {
+    }
+
+    @And("The user types in a {string} in city field.")
+    public void theUserTypesInAInCityField(String city) {
+    }
+
+    @And("The user types in a {string} in state field.")
+    public void theUserTypesInAInStateField(String state) {
+    }
+
+    @And("The user types in a {string} in zip field.")
+    public void theUserTypesInAInZipField(String zip) {
+    }
+
+    @And("The user types in a {string} in country field.")
+    public void theUserTypesInAInCountryField(String country) {
+    }
+
+    @Then("They should be notified of a needed field.")
+    public void theyShouldBeNotifiedOfANeededField() {
+    }
 }

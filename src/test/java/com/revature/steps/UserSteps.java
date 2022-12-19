@@ -19,7 +19,8 @@ import java.time.Duration;
 import java.util.Random;
 
 public class UserSteps {
-    WebDriverWait wait = new WebDriverWait(MainRunner.driver, Duration.ofSeconds(10));
+    WebDriverWait wait = new WebDriverWait(MainRunner.driver, Duration.ofSeconds(1));
+    WebDriverWait wait10 = new WebDriverWait(MainRunner.driver, Duration.ofSeconds(10));
     private static String[] userInfo = new String[2];
     private String saveCardNumber;
     private int numOfPayments;
@@ -390,15 +391,14 @@ public class UserSteps {
     @And("user clicks link in email for {string}")
     public void userClicksLinkInEmail(String password) throws InterruptedException {
         MainRunner.masterPage.getEmail();
-        Thread.sleep(Duration.ofSeconds(5).toMillis());
-        WebElement clickRefresh = wait.until(ExpectedConditions.visibilityOf(MainRunner.masterPage.refreshEmail));
+        WebElement clickRefresh = wait10.until(ExpectedConditions.visibilityOf(MainRunner.masterPage.refreshEmail));
         clickRefresh.click();
-        WebElement clickEmail = wait.until(ExpectedConditions.visibilityOf(MainRunner.masterPage.clickEmail));
+        WebElement clickEmail = wait10.until(ExpectedConditions.visibilityOf(MainRunner.masterPage.clickEmail));
         clickEmail.click();
         MainRunner.masterPage.getLink();
         wait.until(ExpectedConditions.visibilityOf(MainRunner.passResetPage.resetPassword));
         MainRunner.passResetPage.resetPassword.sendKeys(password);
-        WebElement resetPasswordButton = wait.until(ExpectedConditions.visibilityOf(MainRunner.passResetPage.resetButton));
+        WebElement resetPasswordButton = wait10.until(ExpectedConditions.visibilityOf(MainRunner.passResetPage.resetButton));
         resetPasswordButton.click();
     }
 
