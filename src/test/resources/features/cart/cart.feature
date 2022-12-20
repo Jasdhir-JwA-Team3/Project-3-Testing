@@ -43,6 +43,7 @@ Feature: Cart
 
 
     #44 User is able to checkout the items in their cart after they added it from the main page.(PASS)
+    @CartCheckout
     Scenario: User is able to checkout the items in their cart after they added it from the main page.
       When The user clicks the cart icon for headphones.
       When The user navigates to the cart page.

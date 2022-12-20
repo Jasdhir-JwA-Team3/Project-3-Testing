@@ -6,6 +6,7 @@ Background:
   And Admin is on the home page
 
 #Admin edits a product positive
+  @EditProduct
 Scenario:
   Given Admin is on the home page
   When Admin clicks edit products

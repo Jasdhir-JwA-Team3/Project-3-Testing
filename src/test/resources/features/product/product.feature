@@ -49,6 +49,7 @@ Feature: Product
   		| chair 	   |
 
 	#PRODUCT REVIEW
+  @ProductReview
   	Scenario Outline: Create review
 	  	When User views "<product>"
 	  	And User selects star rating

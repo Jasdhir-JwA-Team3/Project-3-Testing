@@ -19,7 +19,7 @@ import java.time.Duration;
 import java.util.Random;
 
 public class UserSteps {
-    WebDriverWait wait = new WebDriverWait(MainRunner.driver, Duration.ofSeconds(10));
+    WebDriverWait wait = new WebDriverWait(MainRunner.driver, Duration.ofMillis(500));
     private static String[] userInfo = new String[2];
     private String saveCardNumber;
     private int numOfPayments;
@@ -393,6 +393,7 @@ public class UserSteps {
         Thread.sleep(Duration.ofSeconds(5).toMillis());
         WebElement clickRefresh = wait.until(ExpectedConditions.visibilityOf(MainRunner.masterPage.refreshEmail));
         clickRefresh.click();
+        Thread.sleep(Duration.ofSeconds(5).toMillis());
         WebElement clickEmail = wait.until(ExpectedConditions.visibilityOf(MainRunner.masterPage.clickEmail));
         clickEmail.click();
         MainRunner.masterPage.getLink();
